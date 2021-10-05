@@ -1,2 +1,2 @@
 # gamestock-bullorini
-Public repository for Coder React course (videogame ecommerce)
+Public repository for Coder React course (videogame ecommerce) by Alejandro Bullorini
