@@ -1,0 +1,56 @@
+.NavBar{
+    height: 48px;
+    width: 100%;
+    border-bottom: 1px solid var(--accent-font-color);
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.NavBar-themeMode{
+    margin: 0px 35px 0px 25px;
+    font-size: 10px;
+    color: var(--font-color);
+}
+
+
+.NavBar-logo{
+    height: 32px;
+}
+
+.NavBar-menu{
+    width: 50%;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+.NavBar-items{
+    cursor: pointer;
+    height: 24px;
+    list-style: none;
+    color: var(--accent-font-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.NavBar-menuItems:after{
+    content: "";
+    position: absolute;
+    bottom:0;
+    left:0;
+    width: 0;
+    height: 1px;
+
+    border-bottom: 1.25px solid var(--accent-font-color);
+    transition: width .3s ease-in;
+}
+.NavBar-menuItems:hover:after{
+    width: 100%;
+}
+
+.NavBar-login{
+    margin-left: 20%;
+}

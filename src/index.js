@@ -4,6 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const doc = document.querySelector('html')
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+if (prefersDarkScheme.matches){
+    document.documentElement.setAttribute("class", "dark");
+}else{
+    document.documentElement.setAttribute("class", "light");
+}
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
