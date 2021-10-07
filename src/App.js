@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar categories={['Acción', 'Deportes', 'Carreras']} />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
