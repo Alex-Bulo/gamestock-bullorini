@@ -14,8 +14,9 @@ function NavBar() {
     }
        ,[])
     
-       const themeChange = () =>{
+    const themeChange = () =>{
         const doc = document.querySelector('html')
+        
         if (doc.classList.contains('dark')){
             document.documentElement.setAttribute("class", "light");
             themeIcon.current.classList.remove("fa-sun");
@@ -24,7 +25,8 @@ function NavBar() {
             document.documentElement.setAttribute("class", "dark");
             themeIcon.current.classList.remove("fa-moon");
             themeIcon.current.classList.add("fa-sun");
-      }
+        }
+
     }
 
     return (
@@ -33,9 +35,9 @@ function NavBar() {
             <img src={logo} className="NavBar-logo" alt="logo" />
             
             <ul className="NavBar-menu">
-                <li className="NavBar-items NavBar-menuItems"> Acción </li>
-                <li className="NavBar-items NavBar-menuItems"> Deportes </li>
-                <li className="NavBar-items NavBar-menuItems"> Carreras </li>
+                <li className="NavBar-items"> <a href="#" className="NavBar-menuItems"> Acción </a></li>
+                <li className="NavBar-items"> <a href="#" className="NavBar-menuItems"> Deportes </a></li>
+                <li className="NavBar-items"> <a href="#" className="NavBar-menuItems"> Carreras </a></li>
                 
                 <li className="NavBar-items NavBar-login"> <i className="far fa-user"></i> Ingresar </li>
 

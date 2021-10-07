@@ -11,6 +11,7 @@
     margin: 0px 35px 0px 25px;
     font-size: 10px;
     color: var(--font-color);
+    cursor: pointer;
 }
 
 
@@ -34,6 +35,10 @@
     color: var(--accent-font-color);
     position: relative;
     overflow: hidden;
+}
+.NavBar-menuItems{
+    text-decoration: none;
+    color: inherit;
 }
 
 .NavBar-menuItems:after{
