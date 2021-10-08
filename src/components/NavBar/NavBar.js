@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
 import logo from '../../assets/images/logo.svg';
+import CartWidget from '../CartWidget/CartWidget';
 import './NavBar.css'
 
 function NavBar(props) {
@@ -7,9 +7,13 @@ function NavBar(props) {
    
     return (
         <nav className="NavBar">
-            <div className="NavBar-themeMode" onClick={props.themeHandler}><i className={`far ${themeIcon}`}></i></div>
-            <img src={logo} className="NavBar-logo" alt="logo" />
+            <div className="NavBar-themeMode" >
+                <i onClick={props.themeHandler} className={`far ${themeIcon}`}></i>
+                <img src={logo} className="NavBar-logo" alt="logo" />
+            </div>
             
+            <CartWidget/>
+
             <ul className="NavBar-menu">
                 
                 { props.categories ?

@@ -1,4 +1,3 @@
-import logo from './assets/images/logo.svg';
 import NavBar from './components/NavBar/NavBar';
 import './App.css';
 import { useEffect, useRef, useState } from 'react';
@@ -18,7 +17,7 @@ function App() {
   const app = useRef(null)
 //funcion que permite cambiar el colorTheme al usuario (se pasa al hijo, NavBar)
   const themeChange = () =>{
-    const newTheme = theme=='dark'?'light':'dark'
+    const newTheme = theme==='dark'?'light':'dark'
     setTheme(newTheme)
   }    
     
@@ -28,12 +27,11 @@ function App() {
       
       <NavBar 
             categories={['Acción', 'Deportes', 'Carreras']} 
-            themeIcon={theme=='dark'?'fa-sun':'fa-moon'}
+            themeIcon={theme==='dark'?'fa-sun':'fa-moon'}
             themeHandler={themeChange}
       />
       
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           GameStock: Videojuegos a tu alcance
         </p>
@@ -46,6 +44,9 @@ function App() {
           React Repo
         </a>
       </header>
+
+
+
     </div>
   );
 }
