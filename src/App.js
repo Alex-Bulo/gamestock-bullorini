@@ -1,6 +1,7 @@
 import NavBar from './components/NavBar/NavBar';
 import './App.css';
 import { useEffect, useRef, useState } from 'react';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 
 
@@ -21,6 +22,9 @@ function App() {
     setTheme(newTheme)
   }    
     
+  const greeting = 'Proximamente vas a poder ver los productos'
+
+
 
     return (
     <div ref={app} className={`App ${theme}`}>
@@ -45,6 +49,7 @@ function App() {
         </a>
       </header>
 
+      <ItemListContainer greeting={greeting}/>
 
 
     </div>

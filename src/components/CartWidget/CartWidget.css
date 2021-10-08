@@ -1,3 +1,9 @@
 .CartWidget{
     color: var(--accent-font-color);
+    display: flex;
+    align-items: center;
+}
+
+.cartQty{
+    margin: 10px;
 }
