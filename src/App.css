@@ -1,5 +1,21 @@
+.dark{
+  --bkg-color: #030d0c;
+  --font-color: #f2f2f2;
+  --accent-font-color: #2cdbcf;
+
+}
+.light{
+  --bkg-color: #d4d4d4;
+  --font-color: #0f0f0f;
+  --accent-font-color: #1e8881;
+}
+
+
 .App {
   text-align: center;
+  background-color: var(--bkg-color);
+  color: var(--font-color);
+
 }
 
 .App-logo {

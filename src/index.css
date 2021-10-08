@@ -17,31 +17,16 @@ body {
 
 
 @media (prefers-color-scheme: dark) {
-  html{
+  body{
     --bkg-color: #030d0c;
     --font-color: #f2f2f2;
     --accent-font-color: #2cdbcf;
   }
 }
 @media (prefers-color-scheme: light) {
-  html{
+  body{
     --bkg-color: #d4d4d4;
     --font-color: #0f0f0f;
     --accent-font-color: #1e8881;
   }
-}
-html.dark{
-  --bkg-color: #030d0c;
-  --font-color: #f2f2f2;
-  --accent-font-color: #2cdbcf;
-}
-html.light{
-  --bkg-color: #d4d4d4;
-  --font-color: #0f0f0f;
-  --accent-font-color: #1e8881;
-}
-
-body{
-  background-color: var(--bkg-color);
-  color: var(--font-color);
 }

@@ -3,35 +3,11 @@ import logo from '../../assets/images/logo.svg';
 import './NavBar.css'
 
 function NavBar(props) {
-    const themeIcon = useRef(null)
+    const themeIcon = props.themeIcon
    
-    useEffect( ()=>{
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches){
-            themeIcon.current.classList.add('fa-sun')
-        }else{
-            themeIcon.current.classList.add('fa-moon')
-        }
-    }
-       ,[])
-    
-    const themeChange = () =>{
-        const doc = document.querySelector('html')
-        
-        if (doc.classList.contains('dark')){
-            document.documentElement.setAttribute("class", "light");
-            themeIcon.current.classList.remove("fa-sun");
-            themeIcon.current.classList.add("fa-moon");
-        }else{
-            document.documentElement.setAttribute("class", "dark");
-            themeIcon.current.classList.remove("fa-moon");
-            themeIcon.current.classList.add("fa-sun");
-        }
-
-    }
-
     return (
         <nav className="NavBar">
-            <div className="NavBar-themeMode" onClick={themeChange}><i ref={themeIcon} className="far fa-moon"></i></div>
+            <div className="NavBar-themeMode" onClick={props.themeHandler}><i className={`far ${themeIcon}`}></i></div>
             <img src={logo} className="NavBar-logo" alt="logo" />
             
             <ul className="NavBar-menu">
