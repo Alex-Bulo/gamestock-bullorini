@@ -18,7 +18,7 @@ function NavBar(props) {
                 
                 { props.categories ?
                 props.categories.map( (category,i) =>{
-                    return <li key={i} className="NavBar-items"> <a href="#" className="NavBar-menuItems"> {category} </a></li>
+                    return <li key={i} className="NavBar-items"> <a href="/#" className="NavBar-menuItems"> {category} </a></li>
                 })
                 :'Bienvenido/a'
                 }
