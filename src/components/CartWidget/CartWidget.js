@@ -1,6 +1,6 @@
 import './CartWidget.css'
 
-function CartWidget(props) {
+function CartWidget() {
    
     return (
         <div className="CartWidget">

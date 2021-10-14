@@ -8,7 +8,7 @@ function NavBar(props) {
     return (
         <nav className="NavBar">
             <div className="NavBar-themeMode" >
-                <i onClick={props.themeHandler} className={`far ${themeIcon}`}></i>
+                <i onClick={props.themeHandler} className={`${themeIcon}`}></i>
                 <img src={logo} className="NavBar-logo" alt="logo" />
             </div>
             
@@ -23,7 +23,7 @@ function NavBar(props) {
                 :'Bienvenido/a'
                 }
                                 
-                <li className="NavBar-items NavBar-login"> <i className="far fa-user"></i> Ingresar </li>
+                <li className="NavBar-items NavBar-login"> <i className="fas fa-user"></i> Ingresar </li>
 
             </ul>
 

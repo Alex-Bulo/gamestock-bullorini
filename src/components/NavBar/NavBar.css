@@ -13,11 +13,11 @@
     align-items: center;
 }
 .NavBar-themeMode i{
-    font-size: 10px;
+    font-size: 13px;
     color: var(--font-color);
     cursor: pointer;
     margin: 8px;
-    
+    transform: translateY(30%)
 }
 
 

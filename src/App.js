@@ -31,7 +31,7 @@ function App() {
       
       <NavBar 
             categories={['Acción', 'Deportes', 'Carreras']} 
-            themeIcon={theme==='dark'?'fa-sun':'fa-moon'}
+            themeIcon={theme==='dark'?'fas fa-sun':'fas fa-moon'}
             themeHandler={themeChange}
       />
       
