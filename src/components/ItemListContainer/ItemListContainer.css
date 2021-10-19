@@ -1,6 +1,13 @@
 .ItemListContainer{
     margin: 15px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+
+@media (min-width: 769px){
+    .ItemListContainer{
+        flex-direction: row;
+    }
 }

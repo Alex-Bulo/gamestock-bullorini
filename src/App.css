@@ -2,12 +2,15 @@
   --bkg-color: #030d0c;
   --font-color: #f2f2f2;
   --accent-font-color: #2cdbcf;
+  --accent-font-colorShade: rgba(44, 219, 207, .25)
+  ;
 
 }
 .light{
   --bkg-color: #d4d4d4;
   --font-color: #0f0f0f;
   --accent-font-color: #1e8881;
+  --accent-font-colorShade: rgba(30, 136, 129, .25);
 }
 
 

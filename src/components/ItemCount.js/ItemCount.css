@@ -1,0 +1,45 @@
+.ItemCount{
+    background-color: var(--accent-font-colorShade);
+    /* height: 85px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.countSection,
+.countHeader{
+    margin: 15px 5px;
+}
+.countButtons{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.countButtons input{
+    font-size: 1.1em;
+    width: 25%;
+    text-align: center;
+}
+.countButtons button{
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 15%;
+    border: 1px solid var(--accent-font-color);
+    background-color: inherit;
+}
+
+.countButtons button:hover{
+    background-color: var(--accent-font-color);
+    border: none;
+    transition: all 1s;
+}
+
+.addBtn{
+    cursor: pointer;
+    font-size: 1em;
+    padding: 5px;
+    opacity: .8;
+    background-color: var(--accent-font-color);
+
+}

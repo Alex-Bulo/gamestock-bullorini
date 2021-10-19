@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ItemCount from '../ItemCount.js/ItemCount';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
 
@@ -34,7 +35,12 @@ function ItemListContainer(props) {
     return (
         <section className="ItemListContainer">
 
-            {products && <ItemList items={products}/>}
+            {products && 
+                <>
+                    <ItemCount initial={1} stock={5}/>
+                    <ItemList items={products}/>
+                </>
+            }
             {loading && <article>{props.greeting}</article>}
 
         </section>
