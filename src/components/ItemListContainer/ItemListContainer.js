@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import ItemCount from '../ItemCount.js/ItemCount';
+import ItemCount from '../ItemCount/ItemCount';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
 
