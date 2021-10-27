@@ -18,11 +18,6 @@ function ItemCount({stock,initial}) {
 
     return (
         <div className="ItemCount">
-            <section className="countHeader">
-                <h4>Fifa 22</h4>
-                <p>PS4</p>
-            </section>
-
             <section className="countSection">
                 
                 <div className="countButtons">
