@@ -1,0 +1,25 @@
+.ItemDetail{
+    margin: 20px;
+    /* padding: 15px; */
+    
+    border: 1.4px var(--accent-font-color) solid ;
+
+}
+
+.gameTitle{
+    padding: 10px;
+    font-size: 2em;
+    border-bottom: 0.2px dashed var(--font-color);
+}
+.gameDescription{
+    padding: 10px;
+    font-size: 1.2em;
+}
+.detailImg{
+    width: 35%;
+}
+.gamePrice{
+    padding: 15px;
+    font-size: 1.5em;
+    color: var(--accent-font-color);
+}

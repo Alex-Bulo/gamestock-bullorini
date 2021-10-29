@@ -1,5 +1,6 @@
 import NavBar from './components/NavBar/NavBar';
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
@@ -34,24 +35,17 @@ function App() {
             themeIcon={theme==='dark'?'fas fa-sun':'fas fa-moon'}
             themeHandler={themeChange}
       />
-      
-      <header className="App-header">
-        <p>
-          GameStock: Videojuegos a tu alcance
-        </p>
-        <a
-          className="App-link"
-          href="https://github.com/Alex-Bulo/gamestock-bullorini.git"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React Repo
-        </a>
-      </header>
+          
 
-      <ItemListContainer greeting={greeting}/>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <ItemListContainer greeting={greeting}/>
+            </Route>
+          </Switch>
 
 
+        </BrowserRouter>
     </div>
   );
 }
