@@ -3,6 +3,8 @@ import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { categories } from './helpers/data';
 
 
 
@@ -30,17 +32,25 @@ function App() {
     return (
     <div ref={app} className={`App ${theme}`}>
       
+      <BrowserRouter>
       <NavBar 
-            categories={['Acción', 'Deportes', 'Carreras']} 
+            categories={categories} 
             themeIcon={theme==='dark'?'fas fa-sun':'fas fa-moon'}
             themeHandler={themeChange}
       />
           
 
-        <BrowserRouter>
           <Switch>
             <Route exact path="/">
-              <ItemListContainer greeting={greeting}/>
+                  <ItemListContainer greeting={greeting}/>
+            </Route>
+
+            <Route path="/category/:id">
+                  <ItemListContainer/>
+            </Route>
+            
+            <Route path="/item/:id">
+                  <ItemDetailContainer/>
             </Route>
           </Switch>
 

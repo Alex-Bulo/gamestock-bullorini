@@ -41,10 +41,12 @@
     color: var(--accent-font-color);
     position: relative;
     overflow: hidden;
+
 }
 .NavBar-menuItems{
     text-decoration: none;
     color: inherit;
+    text-transform: uppercase;
 }
 
 .NavBar-menuItems:after{

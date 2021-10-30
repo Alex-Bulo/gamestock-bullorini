@@ -1,6 +1,5 @@
 .ItemCount{
     background-color: var(--accent-font-colorShade);
-    /* height: 85px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

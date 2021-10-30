@@ -1,12 +1,15 @@
+import { Link } from 'react-router-dom';
 import './Item.css'
 
-function Item(props) {
+function Item({item}) {
     
     return (
         <article className="Item">
-            <h4>{props.item.title}</h4> 
-            <p>{props.item.description}</p>
-            <img className='ItemImg' src={props.item.pictureUrl} alt={`Foto Juego ${props.item.title}`} /> 
+            <h4>{item.title}</h4> 
+
+            <img className='ItemImg' src={item.pictureUrl} alt={`Foto Juego ${item.title}`} /> 
+            
+            <Link to={`/item/${item.id}`} className="btnItem"> Ver más</Link>
         </article>
     );
 }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 import CartWidget from '../CartWidget/CartWidget';
 import './NavBar.css'
@@ -10,7 +11,7 @@ function NavBar(props) {
             <nav className="NavBar">
                 <div className="NavBar-themeMode" >
                     <i onClick={props.themeHandler} className={`${themeIcon}`}></i>
-                    <img src={logo} className="NavBar-logo" alt="logo" />
+                    <Link to="/"><img src={logo} className="NavBar-logo" alt="logo" /></Link>
                 </div>
                 
                 <CartWidget/>
@@ -19,7 +20,7 @@ function NavBar(props) {
                     
                     { props.categories ?
                     props.categories.map( (category,i) =>{
-                        return <li key={i} className="NavBar-items"> <a href="/#" className="NavBar-menuItems"> {category} </a></li>
+                        return <li key={i} className="NavBar-items"> <Link to={`/category/${category}`} className="NavBar-menuItems"> {category} </Link></li>
                     })
                     :'Bienvenido/a'
                     }

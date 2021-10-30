@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
+import {data,categories} from '../../helpers/data'
 
 function ItemListContainer(props) {
     const [products, setProducts] = useState(null)
     const [loading, setLoading] = useState(true)
-
-    const data = [
-        {id:1, title:'Fifa 22', description:'Juego de Futbol de EA Sports', price:'USD $90', pictureUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUzKyUl42E-B41unBq5iVBDJLAWDoUID-A1uCHwa_5rmfs_1cPbJIMbb3993m9eHHnUA4&usqp=CAU'},
-        {id:2, title:'Virtua Tennis', description:'Virtua Tennis World Tour para PS4', price:'USD $60', pictureUrl:'https://http2.mlstatic.com/D_NQ_NP_616913-MLA41272666365_032020-V.jpg'},
-        {id:3, title:'NBA 2K21', description:'Juego de NBA para PS4', price:'USD $70', pictureUrl:'https://metajuego1.com/assets/uploads/product_hMf4KJ5UjqRF3k8Q1xwC.jpg'}]
+    const {id} = useParams()
 
 
     useEffect( () => {
@@ -22,26 +20,28 @@ function ItemListContainer(props) {
 
         getProducts
             .then((result)=>{
-                    setProducts(result)
+                    let info = result
+                    if(id && categories.indexOf(id)>=0 ){
+                        info = result.filter(e => e.category === id)
+                    }  
+                    setProducts(info)
                     setLoading(false)
                 }
             )
-        },[])
-
-
-
+        },[id])
 
 
     return (
         <section className="ItemListContainer">
-
             {products && 
                 <>
-                    {/* <ItemList items={products}/> */}
-                    <ItemDetailContainer gameID={1}/>
+                    {props.greeting && <h4 className="catTitle">{props.greeting}</h4>}
+                    {id && <h4 className="catTitle">Juegos para {id}</h4>}
+                    <ItemList items={products}/>
+                    
                 </>
             }
-            {loading && <article>{props.greeting}</article>}
+            {loading && <article>Cargando...</article>}
 
         </section>
     );
