@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { categories } from './helpers/data';
+import NotFoundContainer from './components/NotFoundContainer/NotFoundContainer';
 
 
 
@@ -51,6 +52,10 @@ function App() {
             
             <Route path="/item/:id">
                   <ItemDetailContainer/>
+            </Route>
+
+            <Route path="*">
+                  <NotFoundContainer/>
             </Route>
           </Switch>
 

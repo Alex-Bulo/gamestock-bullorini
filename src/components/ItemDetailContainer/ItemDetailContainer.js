@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import {data} from '../../helpers/data'
-import './ItemDetailContainer.css'
 import { useParams } from 'react-router';
+import './ItemDetailContainer.css'
 
 function ItemDetailContainer(props) {
     const [items, setItems] = useState(null)
@@ -30,7 +30,7 @@ function ItemDetailContainer(props) {
                     setLoading(false)
                 }
             )
-        },[])
+        },[id])
 
 
 

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
 import {data,categories} from '../../helpers/data'
@@ -12,6 +11,8 @@ function ItemListContainer(props) {
 
 
     useEffect( () => {
+        setProducts(null)
+        setLoading(true)
         const getProducts = new Promise ((resolve)=>{
             setTimeout( ()=> {
                 resolve(data)
