@@ -32,10 +32,6 @@ function ItemDetailContainer(props) {
             )
         },[id])
 
-
-
-
-
     return (
         <section className="ItemDetailContainer">
 

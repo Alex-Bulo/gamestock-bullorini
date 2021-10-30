@@ -6,5 +6,8 @@
 @media (min-width: 769px){
     .ItemList{
         flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
     }
 }
