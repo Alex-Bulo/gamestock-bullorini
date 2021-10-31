@@ -7,8 +7,11 @@ function ItemDetail({item}) {
     const pics = useRef(null)
 
     function picsHandler (e){
-        console.log(e.target);
         pics.current.classList.toggle('morePics')
+    }
+    function notClose(e){
+        console.log(e.currentTarget);
+        e.stopPropagation()
     }
 
     return (
@@ -24,7 +27,7 @@ function ItemDetail({item}) {
                     <button onClick={picsHandler}>Más fotos</button>
                     
                     <div ref={pics} onClick={picsHandler} className="imagesContainer">
-                        <div className="images">
+                        <div onClick={notClose} className="images">
                             {item.images.map((img,i)=>{
                                 return(
                                     <img src={img} key={i}/>
