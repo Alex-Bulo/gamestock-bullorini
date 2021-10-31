@@ -5,23 +5,26 @@ import './NotFound.css'
 
 function NotFound({game}) {
     const [gamePic, setGamePic] = useState(0)
-    let timeLapse = () => {
-        setTimeout(()=>{
+    
+    
+    
+    useEffect( () => {
+        
+        const changeGame = ()=>{
             if(gamePic < game.images.length){
-                setGamePic(gamePic +1)
+                setGamePic(gamePic => gamePic + 1)
             }else{
                 setGamePic(0)
             }
-    
-        },5000)
-    }
-    const destroyTimeLapse =()=>timeLapse = console.log('unmounted!');
-
-    useEffect(() => {
-        timeLapse()
-         return ()=>destroyTimeLapse
-    }
-        ,[])
+            
+        }
+        
+        const timeLapse = setTimeout(changeGame ,3000)
+        
+        // return ()=> clearInterval(timeLapse)
+        return () => clearInterval(timeLapse)
+    }   
+        ,[gamePic])
 
     return (
         <section className="NotFound">
@@ -39,10 +42,12 @@ function NotFound({game}) {
             <article className="gameContainer">
 
                     <div className="gameInfo">
-                        <img src={game.images[gamePic]}/>
-                        <h3 className="gameDate">Primera entrega: {game.released}</h3>
-                        <h2 className="gameName">{game.name}</h2>
-                        <h2 className="gamePlatform">{game.platform}</h2>
+                        <div className="gameFacts">
+                            <h4 className="gameName">{game.name}</h4>
+                            <h4 className="gamePlatform">{game.platform}</h4>
+                            <p className="gameDate">Primera entrega: {game.released}</p>
+                        </div>
+                        <img src={game.images[gamePic]} alt={`Screenshot de ${game.name}`}/>
                     </div>
         
             

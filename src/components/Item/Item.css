@@ -24,14 +24,15 @@
 
 .itemCategory{
     position: absolute;
-    bottom: -1em;
+    bottom: -1.4em;
     
     display: block;
     opacity: 0%;
     width: 100%;
 
     text-transform: capitalize;
-    
+    font-size: .8em;
+
     border: 1px solid var(--accent-font-color);
     border-top: none;
     background-color: var(--accent-font-colorShade);
@@ -43,4 +44,10 @@
     /* display: block; */
     opacity: 100%;
 
+}
+
+.btnItem{
+    background-color:transparent;
+    border:none;
+    color: var(--accent-font-color);
 }

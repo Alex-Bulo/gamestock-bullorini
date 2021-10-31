@@ -6,6 +6,7 @@ import {data,categories} from '../../helpers/data'
 
 function ItemListContainer(props) {
     const [products, setProducts] = useState(null)
+    const [msg, setMsg] = useState(null)
     const [loading, setLoading] = useState(true)
     const {id} = useParams()
 
@@ -21,11 +22,17 @@ function ItemListContainer(props) {
 
         getProducts
             .then((result)=>{
-                    let info = result
+                
                     if(id && categories.indexOf(id)>=0 ){
-                        info = result.filter(e => e.category === id)
+                        const info = result.filter(e => e.category === id)
+                        setMsg("Nuestros juegos para " + id)
+                        setProducts(info)
+                    }else{
+                        setMsg("Todos nuestros juegos")
+                        setProducts(result)
+                        
                     }  
-                    setProducts(info)
+
                     setLoading(false)
                 }
             )
@@ -37,7 +44,7 @@ function ItemListContainer(props) {
             {products && 
                 <>
                     {props.greeting && <h4 className="catTitle">{props.greeting}</h4>}
-                    {id && <h4 className="catTitle">Juegos para {id}</h4>}
+                    {id && <h4 className="catTitle">{msg}</h4>}
                     <ItemList items={products}/>
                     
                 </>

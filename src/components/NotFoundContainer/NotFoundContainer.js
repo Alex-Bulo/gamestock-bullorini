@@ -41,10 +41,10 @@ function NotFoundContainer() {
         } catch (error) {
             setRandomID(Math.floor(Math.random() * 60000))
         }
-        
-        
+                
             console.log('hice un fetch');  
-    }
+
+        }
         ,[randomID])
 
 

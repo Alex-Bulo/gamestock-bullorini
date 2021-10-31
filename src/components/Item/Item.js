@@ -9,7 +9,7 @@ function Item({item}) {
 
             <img className='ItemImg' src={item.pictureUrl} alt={`Foto Juego ${item.title}`} /> 
             
-            <Link to={`/item/${item.id}`} className="btnItem"> Ver más</Link>
+            <button to={`/item/${item.id}`} className="btnItem"> Ver más</button>
 
             <h5 className="itemCategory">{item.category}</h5>
         </Link>
