@@ -26,7 +26,7 @@ function App() {
     setTheme(newTheme)
   }    
     
-  const greeting = 'Proximamente vas a poder ver los productos'
+  const greeting = 'Todos nuestros juegos'
 
 
 

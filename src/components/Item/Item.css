@@ -1,11 +1,14 @@
 .Item{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     border: 1px solid var(--accent-font-color);
-    margin: 10px;
-
+    margin: 15px;
+    
+    text-decoration: none;
+    color:var(--font-color);
 }
 .Item p,
 .Item h4,
@@ -17,4 +20,27 @@
 
 .ItemImg{
     width: 100px;
+}
+
+.itemCategory{
+    position: absolute;
+    bottom: -1em;
+    
+    display: block;
+    opacity: 0%;
+    width: 100%;
+
+    text-transform: capitalize;
+    
+    border: 1px solid var(--accent-font-color);
+    border-top: none;
+    background-color: var(--accent-font-colorShade);
+    
+    transition: opacity 1s;
+}
+
+.Item:hover .itemCategory{
+    /* display: block; */
+    opacity: 100%;
+
 }
