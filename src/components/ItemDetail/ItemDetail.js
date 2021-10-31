@@ -30,7 +30,7 @@ function ItemDetail({item}) {
                         <div onClick={notClose} className="images">
                             {item.images.map((img,i)=>{
                                 return(
-                                    <img src={img} key={i}/>
+                                    <img src={img} key={i} alt={`Extra fotos de ${item.title}`}/>
                                 )
                             })}
                         </div>

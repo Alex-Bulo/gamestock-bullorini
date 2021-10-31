@@ -12,31 +12,36 @@
 .link{
     padding: 20px;
 }
-.NASAContainer{
+.gameContainer{
     width: 90vw;
     height: 70vh;
     margin: auto;
 }
-.NASAinfo{
+.gameinfo{
     margin: 15px;
     position: relative;
 }
-.NASAinfo img{
+.gameinfo img{
     width: 100%;
     height: 70vh;
     border-radius: 3px;
 }
-.NASADate,
-.NASAName{
+.gameDate,
+.gameName,
+.gamePlatform{
     position: absolute;
     background-color: #fafafa;
     color:var(--accent-font-color)
 }
-.NASADate{
+.gameName{
     top:10px;
     right:0px;
 }
-.NASAName{
+.gameDate{
     bottom:10px;
     left:0px;
+}
+.gamePlatform{
+    bottom:10px;
+    right:0px;
 }

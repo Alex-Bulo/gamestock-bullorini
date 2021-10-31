@@ -1,5 +1,5 @@
 const config = {
-    NASA_API_KEY : 'NmGayUd3TEp7HPtABVPqLbwv6A3KzogWjauFa3HN'
+    GAMEDB_API_KEY : '083dcd52edd34b1f809626e1ff38ee09'
 }
 
 

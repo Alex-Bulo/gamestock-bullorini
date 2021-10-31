@@ -1,19 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NotFound.css'
 
 
-function NotFound({NASA}) {
-    const [nasaPic, setNasaPic] = useState(0)
-    setTimeout(()=>{
-        
-        if(nasaPic===3){
-            setNasaPic(0)
-        }else{
-            setNasaPic(nasaPic + 1)
-        }
+function NotFound({game}) {
+    const [gamePic, setGamePic] = useState(0)
+    let timeLapse = () => {
+        setTimeout(()=>{
+            if(gamePic < game.images.length){
+                setGamePic(gamePic +1)
+            }else{
+                setGamePic(0)
+            }
+    
+        },5000)
+    }
+    const destroyTimeLapse =()=>timeLapse = console.log('unmounted!');
 
-    },5000)
+    useEffect(() => {
+        timeLapse()
+         return ()=>destroyTimeLapse
+    }
+        ,[])
 
     return (
         <section className="NotFound">
@@ -28,12 +36,13 @@ function NotFound({NASA}) {
 
             </header>
 
-            <article className="NASAContainer">
+            <article className="gameContainer">
 
-                    <div className="NASAinfo">
-                        <img src={NASA[nasaPic].url}/>
-                        <h3 className="NASADate">Astronomy Picture of {NASA[nasaPic].date}</h3>
-                        <h2 className="NASAName">{NASA[nasaPic].title}</h2>
+                    <div className="gameInfo">
+                        <img src={game.images[gamePic]}/>
+                        <h3 className="gameDate">Primera entrega: {game.released}</h3>
+                        <h2 className="gameName">{game.name}</h2>
+                        <h2 className="gamePlatform">{game.platform}</h2>
                     </div>
         
             
