@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import './ItemDetailContainer.css'
 
 function ItemDetailContainer(props) {
-    const [items, setItems] = useState(null)
+    const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
     const {id} = useParams()
 
@@ -26,7 +26,7 @@ function ItemDetailContainer(props) {
                         info = game
                     } 
 
-                    setItems(info)
+                    setItem(info)
                     setLoading(false)
                 }
             )
@@ -37,7 +37,7 @@ function ItemDetailContainer(props) {
 
             {items && 
                 <>
-                    <ItemDetail item={items}/>
+                    <ItemDetail item={item}/>
                 </>
             }
             {loading && <article>Cargando Info del Juego...</article>}

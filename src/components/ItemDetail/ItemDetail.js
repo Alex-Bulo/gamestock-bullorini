@@ -6,7 +6,7 @@ import './ItemDetail.css'
 function ItemDetail({item}) {
     const pics = useRef(null)
 
-    function picsHandler (e){
+    function picsHandler (){
         pics.current.classList.toggle('morePics')
     }
     function notClose(e){
