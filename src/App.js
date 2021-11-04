@@ -6,7 +6,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { categories } from './helpers/data';
 import NotFoundContainer from './components/NotFoundContainer/NotFoundContainer';
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
 function App() {

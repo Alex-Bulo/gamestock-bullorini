@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import Loader from "react-loader-spinner";
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
 import {data,categories} from '../../helpers/data'
+
+
 
 function ItemListContainer(props) {
     const [products, setProducts] = useState(null)
@@ -49,7 +52,7 @@ function ItemListContainer(props) {
                     
                 </>
             }
-            {loading && <article>Cargando...</article>}
+            {loading && <Loader type='Rings' color='var(--accent-font-color)' height={80} width={80}/>}
 
         </section>
     );
