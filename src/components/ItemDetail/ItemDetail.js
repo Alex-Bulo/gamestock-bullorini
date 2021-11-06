@@ -16,11 +16,10 @@ function ItemDetail({item}) {
         e.stopPropagation()
     }
     function onAdd (qtyToAdd){
-        console.log(qtyToAdd);
-
+        
         setQtyToCart(qtyToAdd)
+        // console.log(qtyToCart);
     }
-    console.log(qtyToCart);
 
     return (
         <article className="ItemDetail">
@@ -36,17 +35,21 @@ function ItemDetail({item}) {
                     
                     <div ref={pics} onClick={picsHandler} className="imagesContainer">
                         <div onClick={notClose} className="images">
-                            {item.images.map((img,i)=>{
-                                return(
+                            
+                            {item.images.map((img,i)=> 
                                     <img src={img} key={i} alt={`Extra fotos de ${item.title}`}/>
-                                )
-                            })}
+                            )}
+
                         </div>
                     </div>
 
                 </div>
 
                 <div className="infoContainer">
+                    <div className='gameDBInfo'> 
+                        <p style={{textTransform:'capitalize'}}>Plataforma: {item.category}</p>
+                        <p>Stock: {item.stock}</p>
+                    </div>
                 <p className="gameDescription">{item.description}</p>
                 { !qtyToCart ? <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/> : <Link to='/cart'><button className='addBtn'>Terminar Compra</button></Link>}
 

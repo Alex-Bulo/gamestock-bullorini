@@ -9,6 +9,7 @@
     
     text-decoration: none;
     color:var(--font-color);
+    cursor: pointer;
 }
 .Item p,
 .Item h4,
@@ -47,6 +48,7 @@
 }
 
 .btnItem{
+    cursor:inherit;
     background-color:transparent;
     border:none;
     color: var(--accent-font-color);

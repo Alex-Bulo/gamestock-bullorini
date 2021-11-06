@@ -62,6 +62,11 @@
     justify-content: space-around;
     align-items: center;
 }
+.gameDBInfo{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 .gameDescription{
     max-height: 75%;
     padding: 10px;
