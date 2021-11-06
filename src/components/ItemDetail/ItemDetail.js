@@ -8,7 +8,7 @@ function ItemDetail({item}) {
     const pics = useRef(null)
     const [qtyToCart, setQtyToCart] = useState(null)
 
-    function picsHandler (e){
+    function picsHandler (){
         pics.current.classList.toggle('morePics')
     }
     function notClose(e){

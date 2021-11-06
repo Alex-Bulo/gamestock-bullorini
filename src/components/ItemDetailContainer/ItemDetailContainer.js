@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import Loader from "react-loader-spinner";
 import {data} from '../../helpers/data'
 import { useParams } from 'react-router';
 import './ItemDetailContainer.css'
 import NotFoundContainer from '../NotFoundContainer/NotFoundContainer';
 
 function ItemDetailContainer(props) {
-    const [items, setItems] = useState(null)
+    const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
     const {id} = useParams()
 

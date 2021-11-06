@@ -1,3 +1,4 @@
+import Loader from "react-loader-spinner";
 import './NotFoundContainer.css'
 import config from '../../helpers/config'
 import { useEffect, useState } from 'react';
@@ -51,7 +52,13 @@ function NotFoundContainer() {
 
     return (
         <main className="NotFoundContainer">
-            {loading ? <h3>No pudimos encontrar la página que deseas...</h3> :<NotFound game={randomGame}/>}
+            {loading ? 
+                <>
+                    <h3>No pudimos encontrar la página que deseas...</h3>
+                    <Loader type='Rings' color='var(--accent-font-color)' height={80} width={80}/>
+                </>
+                    :
+                <NotFound game={randomGame}/>}
         </main>
 
     );

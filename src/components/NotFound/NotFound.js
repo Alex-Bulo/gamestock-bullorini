@@ -21,7 +21,7 @@ function NotFound({game}) {
         
         const timeLapse = setTimeout(changeGame ,3000)
         
-        // return ()=> clearInterval(timeLapse)
+
         return () => clearInterval(timeLapse)
     }   
         ,[gamePic])
