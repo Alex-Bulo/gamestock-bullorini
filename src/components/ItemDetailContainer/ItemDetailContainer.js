@@ -23,7 +23,7 @@ function ItemDetailContainer(props) {
             .then((result)=>{
                     const info = result.find (e => e.id === Number(id))
 
-                    setItems(info)
+                    setItem(info)
                     setLoading(false)
                 }
             )
@@ -32,9 +32,9 @@ function ItemDetailContainer(props) {
     return (
         <section className="ItemDetailContainer">
 
-            {items ? <ItemDetail item={items}/> : <NotFoundContainer/>}
+            {item ? <ItemDetail item={item}/> : <NotFoundContainer/>}
 
-            {loading && <article>Cargando Info del Juego...</article>}
+            {loading && <Loader type='Rings' color='var(--accent-font-color)' height={80} width={80}/>}
 
         </section>
     );

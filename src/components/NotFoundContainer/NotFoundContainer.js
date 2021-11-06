@@ -14,37 +14,43 @@ function NotFoundContainer() {
 
     
     useEffect( () => {
-        console.log(randomID);
-        try {
+        // console.log(randomID);
             fetch(`${GAMEDB}${randomID}?key=${GAMEDB_API_KEY}`)
                 .then(response => response.json())
                 .then(data =>{
-                    let info = {
-                        name: data.name,
-                        released: data.released,
-                        platform: data.parent_platforms[0].platform.name,
-                        images:[]
-                    }
-                    
-                    fetch(`${GAMEDB}${randomID}/screenshots?key=${GAMEDB_API_KEY}`)
-                    .then(response => response.json())
-                    .then(data =>{
+                    if(data.details){
+                        console.log(randomID, 'Not Found');
+                        setRandomID(Math.floor(Math.random() * 60000))
+                    }else{
+                        let info = {
+                            name: data.name,
+                            released: data.released,
+                            platform: data.parent_platforms[0].platform.name,
+                            images:[]
+                        }
                         
-                        data.results.forEach(e=> {
-                            e.is_deleted ||
-                                info.images.push(e.image)
+                        fetch(`${GAMEDB}${randomID}/screenshots?key=${GAMEDB_API_KEY}`)
+                        .then(response => response.json())
+                        .then(data =>{
+                            
+                            data.results.forEach(e=> {
+                                e.is_deleted ||
+                                    info.images.push(e.image)
+                            })
+                            
+                            setRandomGame(info)
+                            setLoading(false)
                         })
-                        
-                        setRandomGame(info)
-                        setLoading(false)
-                    })
-            })    
-        } catch (error) {
-            setRandomID(Math.floor(Math.random() * 60000))
-        }
+    
+                    }
+
+            })
+                .catch( error => {
+                    setRandomGame(null)
+                    setLoading(false)
+                })
                 
             console.log('hice un fetch');  
-
         }
         ,[randomID])
 

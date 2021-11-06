@@ -4,25 +4,27 @@ import './NotFound.css'
 
 
 function NotFound({game}) {
-    const [gamePic, setGamePic] = useState(0)
+    const [gamePic, setGamePic] = useState(game?0:null)
     
     
     
     useEffect( () => {
-        
-        const changeGame = ()=>{
-            if(gamePic < game.images.length){
-                setGamePic(gamePic => gamePic + 1)
-            }else{
-                setGamePic(0)
+        if(gamePic===null){
+            setGamePic(null)
+        }else{
+            const changeGame = ()=>{
+                if(gamePic < game.images.length){
+                    setGamePic(gamePic => gamePic + 1)
+                }else{
+                    setGamePic(0)
+                }
+                
             }
             
-        }
-        
-        const timeLapse = setTimeout(changeGame ,3000)
-        
-
-        return () => clearInterval(timeLapse)
+            const timeLapse = setTimeout(changeGame ,3000)
+            
+            return () => clearInterval(timeLapse)
+        }    
     }   
         ,[gamePic])
 
@@ -38,28 +40,20 @@ function NotFound({game}) {
                 </ul>
 
             </header>
+            {game &&
+                    <article className="gameContainer">
 
-            <article className="gameContainer">
-
-                    <div className="gameInfo">
-                        <div className="gameFacts">
-                            <h4 className="gameName">{game.name}</h4>
-                            <h4 className="gamePlatform">{game.platform}</h4>
-                            <p className="gameDate">Primera entrega: {game.released}</p>
-                        </div>
-                        <img src={game.images[gamePic]} alt={`Screenshot de ${game.name}`}/>
-                    </div>
+                        <div className="gameInfo">
+                            <div className="gameFacts">
+                                <h4 className="gameName">{game.name}</h4>
+                                <h4 className="gamePlatform">{game.platform}</h4>
+                                <p className="gameDate">Primera entrega: {game.released}</p>
+                            </div>
+                            <img src={game.images[gamePic]} alt={`Screenshot de ${game.name}`}/>
+                        </div>                   
         
-            
-
-            </article>
-
-
-
-
-         
-
-
+                    </article>
+            }
 
         </section>
         
