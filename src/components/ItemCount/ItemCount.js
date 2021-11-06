@@ -1,7 +1,7 @@
 import './ItemCount.css'
 import { useState } from 'react';
 
-function ItemCount({stock,initial}) {
+function ItemCount({stock,initial,onAdd}) {
     const [counter, setCounter] = useState(initial || 0)
     
 
@@ -26,7 +26,7 @@ function ItemCount({stock,initial}) {
                     <button onClick={increase}>+</button>
                 </div>
                 
-                <button className="addBtn">Agregar al Carrito</button>            
+                <button className="addBtn" onClick={()=>onAdd(counter)}>Agregar al Carrito</button>            
             
             </section>
         </div>

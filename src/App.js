@@ -6,7 +6,8 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { categories } from './helpers/data';
 import NotFoundContainer from './components/NotFoundContainer/NotFoundContainer';
-
+import Cart from './components/Cart/Cart';
+// import {CartContext} from './context/cartContext'
 
 
 function App() {
@@ -32,35 +33,38 @@ function App() {
 
     return (
     <div ref={app} className={`App ${theme}`}>
-      
-      <BrowserRouter>
-      <NavBar 
-            categories={categories} 
-            themeIcon={theme==='dark'?'fas fa-sun':'fas fa-moon'}
-            themeHandler={themeChange}
-      />
-          
-
-          <Switch>
-            <Route exact path="/">
-                  <ItemListContainer greeting={greeting}/>
-            </Route>
-
-            <Route path="/category/:id">
-                  <ItemListContainer/>
-            </Route>
+      {/* <CartContext value={[]}> */}
+        <BrowserRouter>
+        <NavBar 
+              categories={categories} 
+              themeIcon={theme==='dark'?'fas fa-sun':'fas fa-moon'}
+              themeHandler={themeChange}
+              />
             
-            <Route path="/item/:id">
-                  <ItemDetailContainer/>
-            </Route>
 
-            <Route path="*">
-                  <NotFoundContainer/>
-            </Route>
-          </Switch>
+            <Switch>
+              <Route exact path="/">
+                    <ItemListContainer greeting={greeting}/>
+              </Route>
+
+              <Route path="/category/:id">
+                    <ItemListContainer/>
+              </Route>
+              
+              <Route path="/item/:id">
+                    <ItemDetailContainer/>
+              </Route>
+              <Route path="/cart">
+                    <Cart/>
+              </Route>
+              <Route path="*">
+                    <NotFoundContainer/>
+              </Route>
+            </Switch>
 
 
-        </BrowserRouter>
+          </BrowserRouter>
+        {/* </CartContext> */}
     </div>
   );
 }

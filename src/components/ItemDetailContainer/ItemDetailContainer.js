@@ -3,6 +3,7 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 import {data} from '../../helpers/data'
 import { useParams } from 'react-router';
 import './ItemDetailContainer.css'
+import NotFoundContainer from '../NotFoundContainer/NotFoundContainer';
 
 function ItemDetailContainer(props) {
     const [items, setItems] = useState(null)
@@ -19,12 +20,7 @@ function ItemDetailContainer(props) {
 
         getItems
             .then((result)=>{
-                    let info = null
-                    const game = result.find (e => e.id === Number(id))
-                    
-                    if(game){
-                        info = game
-                    } 
+                    const info = result.find (e => e.id === Number(id))
 
                     setItems(info)
                     setLoading(false)
@@ -35,11 +31,8 @@ function ItemDetailContainer(props) {
     return (
         <section className="ItemDetailContainer">
 
-            {items && 
-                <>
-                    <ItemDetail item={items}/>
-                </>
-            }
+            {items ? <ItemDetail item={items}/> : <NotFoundContainer/>}
+
             {loading && <article>Cargando Info del Juego...</article>}
 
         </section>

@@ -1,10 +1,12 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
 
 function ItemDetail({item}) {
     const pics = useRef(null)
+    const [qtyToCart, setQtyToCart] = useState(null)
 
     function picsHandler (e){
         pics.current.classList.toggle('morePics')
@@ -13,6 +15,12 @@ function ItemDetail({item}) {
         console.log(e.currentTarget);
         e.stopPropagation()
     }
+    function onAdd (qtyToAdd){
+        console.log(qtyToAdd);
+
+        setQtyToCart(qtyToAdd)
+    }
+    console.log(qtyToCart);
 
     return (
         <article className="ItemDetail">
@@ -40,7 +48,8 @@ function ItemDetail({item}) {
 
                 <div className="infoContainer">
                 <p className="gameDescription">{item.description}</p>
-                <ItemCount initial={1} stock={item.stock}/>    
+                { !qtyToCart ? <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/> : <Link to='/cart'><button className='addBtn'>Terminar Compra</button></Link>}
+
                 </div>    
 
 
