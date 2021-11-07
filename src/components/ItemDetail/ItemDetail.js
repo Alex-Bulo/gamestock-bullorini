@@ -14,7 +14,7 @@ function ItemDetail({item}) {
         pics.current.classList.toggle('morePics')
     }
     function notClose(e){
-        console.log(e.currentTarget);
+
         e.stopPropagation()
     }
     function onAdd (qtyToAdd){

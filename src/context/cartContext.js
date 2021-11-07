@@ -24,10 +24,9 @@ export const CartProvider = ( {children} ) => {
 
     const isInCart = (id) =>{
         const filteredCart = cart.filter(item => item.id === id)
-        console.log(filteredCart);
+        
         const isIn = filteredCart.length === 0 ? false : true
-        console.log(isIn); 
-
+        
         return isIn
     }
 

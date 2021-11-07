@@ -1,10 +1,19 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
+import { useAuth } from '../../context/AuthContext';
 import CartWidget from '../CartWidget/CartWidget';
+import LogIn from '../LogIn/LogIn';
 import './NavBar.css'
 
 function NavBar(props) {
     const themeIcon = props.themeIcon
+    const [showLogIn, setShowLogIn] = useState(false)
+    const {user} = useAuth()
+
+    function logInHandler (e){
+        setShowLogIn(!showLogIn)
+    }
 
     return (
         <>
@@ -24,8 +33,12 @@ function NavBar(props) {
                     })
                     :'Bienvenido/a'
                     }
-                                    
-                    <li className="NavBar-items NavBar-login"> <i className="fas fa-user"></i> Ingresar </li>
+
+                    <li className="NavBar-items NavBar-login" onClick={logInHandler}> <i className="fas fa-user"></i> {user ? user.name:'Ingresar'} 
+                            {!user && <LogIn view={showLogIn}/> }
+                    </li>
+                    
+
 
                 </ul>
 

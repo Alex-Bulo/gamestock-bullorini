@@ -140,5 +140,22 @@ export const data = [
 ]
     
 
-
+export const users = [
+    {
+        id:1,
+        name:'Alejandro',
+        lastName:'Bullorini',
+        mail:'ale@user.com',
+        password:'holamundo',
+        pic:'https://media-exp1.licdn.com/dms/image/C5603AQGoUIpM93Y6Vg/profile-displayphoto-shrink_800_800/0/1517608030760?e=1642032000&v=beta&t=_QUy0mW0djxjmeqg1Jzru9ZMTWh-P9mNqmBwHzq0UV8',
+    },
+    {
+        id:2,
+        name:'Juan',
+        lastName:'Garcia',
+        mail:'test1@user.com',
+        password:'holamundo',
+        pic:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1YTUHd1XkJcrTZkAHvhPmZBzi_sagjyXxeQ&usqp=CAU'
+    }
+]
 

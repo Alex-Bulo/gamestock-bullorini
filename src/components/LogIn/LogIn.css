@@ -1,0 +1,28 @@
+.LogIn{
+    position: fixed;
+    right: 10px;
+    top: 50px;
+
+    width: 15vw;
+    height: 150px;
+    min-width: 120px;
+    max-width: 200px;
+
+    flex-direction: column;
+    justify-content: space-around;
+
+    margin: 10px;
+    padding: 5px;
+
+    background-color: var(--bkg-color);
+    border: var(--accent-font-color) 1px solid;
+
+}
+.noShow{
+    display: none;
+}
+.show{
+    z-index: 999;
+    display: flex;
+
+}

@@ -9,6 +9,8 @@ import NotFoundContainer from './components/NotFoundContainer/NotFoundContainer'
 import Cart from './components/Cart/Cart';
 import {CartProvider} from './context/CartContext'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { AuthProvider } from './context/AuthContext';
+import Profile from './components/Profile/Profile';
 
 
 function App() {
@@ -34,38 +36,43 @@ function App() {
 
     return (
     <div ref={app} className={`App ${theme}`}>
-      <CartProvider>
-        <BrowserRouter>
-        <NavBar 
-              categories={categories} 
-              themeIcon={theme==='dark'?'fas fa-sun':'fas fa-moon'}
-              themeHandler={themeChange}
-              />
-            
-
-            <Switch>
-              <Route exact path="/">
-                    <ItemListContainer greeting={greeting}/>
-              </Route>
-
-              <Route path="/category/:id">
-                    <ItemListContainer/>
-              </Route>
+      <AuthProvider>
+        <CartProvider>
+          <BrowserRouter>
+          <NavBar 
+                categories={categories} 
+                themeIcon={theme==='dark'?'fas fa-sun':'fas fa-moon'}
+                themeHandler={themeChange}
+                />
               
-              <Route path="/item/:id">
-                    <ItemDetailContainer/>
-              </Route>
-              <Route path="/cart">
-                    <Cart/>
-              </Route>
-              <Route path="*">
-                    <NotFoundContainer/>
-              </Route>
-            </Switch>
+
+              <Switch>
+                <Route exact path="/">
+                      <ItemListContainer greeting={greeting}/>
+                </Route>
+
+                <Route path="/category/:id">
+                      <ItemListContainer/>
+                </Route>
+                
+                <Route path="/item/:id">
+                      <ItemDetailContainer/>
+                </Route>
+                <Route path="/cart">
+                      <Cart/>
+                </Route>
+                <Route path="/profile">
+                      <Profile/>
+                </Route>
+                <Route path="*">
+                      <NotFoundContainer/>
+                </Route>
+              </Switch>
 
 
-          </BrowserRouter>
-        </CartProvider>
+            </BrowserRouter>
+          </CartProvider>
+        </AuthProvider>
     </div>
   );
 }
