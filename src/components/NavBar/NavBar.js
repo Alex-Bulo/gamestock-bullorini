@@ -5,7 +5,7 @@ import './NavBar.css'
 
 function NavBar(props) {
     const themeIcon = props.themeIcon
-   
+
     return (
         <>
             <nav className="NavBar">

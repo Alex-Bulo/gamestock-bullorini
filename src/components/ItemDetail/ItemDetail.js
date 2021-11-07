@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCart } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
@@ -7,6 +8,7 @@ import './ItemDetail.css'
 function ItemDetail({item}) {
     const pics = useRef(null)
     const [qtyToCart, setQtyToCart] = useState(null)
+    const {addItem} = useCart()
 
     function picsHandler (){
         pics.current.classList.toggle('morePics')
@@ -16,9 +18,18 @@ function ItemDetail({item}) {
         e.stopPropagation()
     }
     function onAdd (qtyToAdd){
-        
         setQtyToCart(qtyToAdd)
-        // console.log(qtyToCart);
+
+    }
+    function addToCartHandler (){
+        const info = {
+            ...item,
+            qty: qtyToCart
+        }
+        
+        const success = addItem(info)
+
+        success ? alert('Producto agregado al Carrito') : alert('Producto existe en el carrito')
     }
 
     return (
@@ -51,7 +62,7 @@ function ItemDetail({item}) {
                         <p>Stock: {item.stock}</p>
                     </div>
                 <p className="gameDescription">{item.description}</p>
-                { !qtyToCart ? <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/> : <Link to='/cart'><button className='addBtn'>Terminar Compra</button></Link>}
+                { !qtyToCart ? <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/> : <Link to='/cart' onClick={addToCartHandler}><button className='addBtn'>Terminar Compra</button></Link>}
 
                 </div>    
 

@@ -7,7 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { categories } from './helpers/data';
 import NotFoundContainer from './components/NotFoundContainer/NotFoundContainer';
 import Cart from './components/Cart/Cart';
-// import {CartContext} from './context/cartContext'
+import {CartProvider} from './context/CartContext'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
@@ -34,7 +34,7 @@ function App() {
 
     return (
     <div ref={app} className={`App ${theme}`}>
-      {/* <CartContext value={[]}> */}
+      <CartProvider>
         <BrowserRouter>
         <NavBar 
               categories={categories} 
@@ -65,7 +65,7 @@ function App() {
 
 
           </BrowserRouter>
-        {/* </CartContext> */}
+        </CartProvider>
     </div>
   );
 }
