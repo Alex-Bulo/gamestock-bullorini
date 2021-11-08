@@ -1,7 +1,9 @@
 .ItemList{
+    width: 100%;
     margin: 35px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 @media (min-width: 769px){
     .ItemList{
