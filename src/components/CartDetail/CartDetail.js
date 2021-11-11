@@ -20,7 +20,7 @@ function CartDetail({item}) {
 
     return (
         <article className="CartDetail">
-            <div className="cart-imgContainer"><img src={item.pictureUrl}/></div>
+            <div className="cart-imgContainer"><img src={item.pictureUrl} alt={`Foto de Portada de ${item.title}`}/></div>
             <div className="cartInfo">
                 <h3 className="cartInfo-title">{item.title}</h3>
                 <p className="cartInfo-detail"><span>Plataforma:</span> {item.category}</p>

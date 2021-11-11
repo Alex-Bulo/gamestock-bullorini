@@ -11,7 +11,7 @@ function CartDetailContainer({cart}) {
             <div className="cartPrice"><span>Precio Total: USD </span>{cart.reduce( (acum, item)=> acum + item.price*item.qty, 0 )}</div>
         </header>
             
-        {cart.map(item => <CartDetail item={item}/>)}
+        {cart.map((item,i) => <CartDetail key={`${item.id}-${i}`} item={item}/>)}
 
         </section>
     );

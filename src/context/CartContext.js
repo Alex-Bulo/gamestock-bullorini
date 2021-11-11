@@ -8,27 +8,27 @@ export const CartProvider = ( {children} ) => {
     const [cart, setCart] = useState( [] )
 
     const addItem = (item) =>{
-
+        let toReturn
         switch (isInCart(item)) {
             case 'differentQty':
-                const filteredCart = cart.filter(i => i.id != item.id)
+                const filteredCart = cart.filter(i => i.id !== item.id)
                 setCart([...filteredCart, item])
-                return true
+                toReturn = true
                 
                 break;
 
             case 'differentItems':
                 setCart([...cart, item])
-                return true
+                toReturn = true
 
                 break;
 
             default:
-                return false
+                toReturn = false
                 break;
 
         }
-
+        return toReturn
         
     }
 
@@ -40,27 +40,18 @@ export const CartProvider = ( {children} ) => {
     const isInCart = (item) =>{
         const isId = cart.some(i => i.id === item.id)
         const isQty = cart.some(i => i.id===item.id && i.qty===item.qty)
-        console.log('isId', isId);
-        console.log('isQty', isQty);
+
+// id = true -> qty=true   : true
+// id = false -> qty=false  : false
+// id = true -> qty=false  : false
+
         if( !(isId && isQty) ){
             const needsUpdate = isId ? 'differentQty' : 'differentItems'
        
             return needsUpdate
         }
         return 'inCart'
-// id = true -> qty=true   : true
-// id = false -> qty=false  : false
-// id = true -> qty=false  : false
 
-
-
-        const filteredById = cart.filter(i => i.id === item.id)
-        let isIn
-        
-        if(filteredById.length === 0){
-            
-        }
-        return isIn
     }
 
     const clear = () =>{
