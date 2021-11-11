@@ -1,0 +1,27 @@
+.CartDetail{
+    margin-top: 35px;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.cart-imgContainer{
+    width: 20%;
+
+    margin: 10px;
+    border-right: 1px solid var(--accent-font-colorShade);
+}
+.cart-imgContainer img{
+    width: 100%;
+    padding: 10px;
+}
+.cartInfo{
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.carInfo-title{
+    font-weight: bold;
+}

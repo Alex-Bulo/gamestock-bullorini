@@ -68,3 +68,6 @@
     position: relative;
     margin-left: 20%;
 }
+.NavBar a{
+    text-decoration: none;
+}

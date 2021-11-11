@@ -1,0 +1,29 @@
+.Cart{
+    width: 90vw;
+    margin:auto;
+}
+.EmptyCart{
+    margin-top: 25px;
+    padding: 15px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+.EmptyCart i{
+    width: 50%;
+    font-size: 4em;
+}
+.redirect{
+    margin-top: 15px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+}
+
+.Cart span{
+    color: var(--accent-font-color);
+}

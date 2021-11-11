@@ -1,0 +1,23 @@
+.CartDetailContainer{
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid var(--accent-font-color);
+}
+
+.cartTop{
+    width: 60%;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border: 1px solid var(--accent-font-color);
+
+}

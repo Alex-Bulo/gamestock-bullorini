@@ -5,15 +5,30 @@ const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ( {children} ) => {
-    const [cart, setCart] = useState( [{id:'a'},{id:'b'}] )
+    const [cart, setCart] = useState( [] )
 
     const addItem = (item) =>{
-        if (!isInCart(item.id)){
-            setCart( [...cart, item] ) 
-            return true
-        }else{
-            return false
+
+        switch (isInCart(item)) {
+            case 'differentQty':
+                const filteredCart = cart.filter(i => i.id != item.id)
+                setCart([...filteredCart, item])
+                return true
+                
+                break;
+
+            case 'differentItems':
+                setCart([...cart, item])
+                return true
+
+                break;
+
+            default:
+                return false
+                break;
+
         }
+
         
     }
 
@@ -22,11 +37,29 @@ export const CartProvider = ( {children} ) => {
         setCart(updatedCart)
     }
 
-    const isInCart = (id) =>{
-        const filteredCart = cart.filter(item => item.id === id)
+    const isInCart = (item) =>{
+        const isId = cart.some(i => i.id === item.id)
+        const isQty = cart.some(i => i.id===item.id && i.qty===item.qty)
+        console.log('isId', isId);
+        console.log('isQty', isQty);
+        if( !(isId && isQty) ){
+            const needsUpdate = isId ? 'differentQty' : 'differentItems'
+       
+            return needsUpdate
+        }
+        return 'inCart'
+// id = true -> qty=true   : true
+// id = false -> qty=false  : false
+// id = true -> qty=false  : false
+
+
+
+        const filteredById = cart.filter(i => i.id === item.id)
+        let isIn
         
-        const isIn = filteredCart.length === 0 ? false : true
-        
+        if(filteredById.length === 0){
+            
+        }
         return isIn
     }
 
