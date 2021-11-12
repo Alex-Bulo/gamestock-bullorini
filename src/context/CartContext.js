@@ -8,21 +8,30 @@ export const CartProvider = ( {children} ) => {
     const [cart, setCart] = useState( [] )
 
     const addItem = (item) =>{
+        const filteredCart = cart.filter(i => i.id !== item.id)
+        
         let toReturn
         switch (isInCart(item)) {
-            case 'differentQty':
-                const filteredCart = cart.filter(i => i.id !== item.id)
-                setCart([...filteredCart, item])
-                toReturn = true
-                
-                break;
-
             case 'differentItems':
-                setCart([...cart, item])
+
+            setCart([...cart, item])
                 toReturn = true
 
                 break;
 
+            case 'inCart':
+            case 'differentQty':
+                const sameItem = cart.filter(i=> i.id === item.id)
+                const newQty = item.qty + sameItem[0].qty
+                const newItem = {
+                    ...item, 
+                    qty: newQty > item.stock ? item.stock : newQty}
+                
+                
+                setCart([...filteredCart, newItem])
+                toReturn = true
+
+                break;
             default:
                 toReturn = false
                 break;
@@ -47,9 +56,10 @@ export const CartProvider = ( {children} ) => {
 
         if( !(isId && isQty) ){
             const needsUpdate = isId ? 'differentQty' : 'differentItems'
-       
+            console.log('hiii');
             return needsUpdate
         }
+        console.log('ll');
         return 'inCart'
 
     }

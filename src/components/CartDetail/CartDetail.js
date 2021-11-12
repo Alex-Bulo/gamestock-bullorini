@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import { useCart } from '../../context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 import './CartDetail.css'
 
 function CartDetail({item}) {
-    const [selfQty, setSelfQty] = useState(item.qty)    
     const {addItem} = useCart()
 
     function addToCartHandler (qtyToAdd){
-        setSelfQty(qtyToAdd)
-
+        
         const info = {
             ...item,
             qty: qtyToAdd
@@ -26,7 +23,7 @@ function CartDetail({item}) {
                 <p className="cartInfo-detail"><span>Plataforma:</span> {item.category}</p>
                 <p className="cartInfo-detail"><span>Primera entrega:</span> {item.released}</p>
                 <br/>
-                <p className="cartInfo-detail"><span>Cantidad elegida:</span> {selfQty}</p>
+                <p className="cartInfo-detail"><span>Cantidad elegida:</span> {item.qty}</p>
                 <p className="cartInfo-detail"><span>Cantidad elegida:</span> USD {item.price}</p>
             </div>
             <div className="cart-buttons">

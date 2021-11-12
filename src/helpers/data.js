@@ -29,6 +29,8 @@ export const data = [
         images:["https://media.rawg.io/media/games/8ec/8ecf2f90e684d59cd88096689607e444.jpg","https://media.rawg.io/media/screenshots/160/160b0ea8d18348779842258a0c11305c.jpg","https://media.rawg.io/media/screenshots/160/160b0ea8d18348779842258a0c11305c.jpg"]
     },
 
+
+    
     {
         id:3, 
         title:'NBA 2K21', 

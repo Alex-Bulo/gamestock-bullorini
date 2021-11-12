@@ -26,8 +26,9 @@ function ItemDetail({item}) {
             ...item,
             qty: qtyToCart
         }
-        
+
         const success = addItem(info)
+
 
         success ? alert('Producto agregado al Carrito') : alert('Producto existe en el carrito')
     }
