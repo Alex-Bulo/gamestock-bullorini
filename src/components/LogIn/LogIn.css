@@ -18,11 +18,3 @@
     border: var(--accent-font-color) 1px solid;
 
 }
-.noShow{
-    display: none;
-}
-.show{
-    z-index: 999;
-    display: flex;
-
-}

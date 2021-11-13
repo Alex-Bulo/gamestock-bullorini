@@ -1,0 +1,29 @@
+
+.ConfirmPopUp{
+    width: 100vw;
+    height: 100vh;
+    
+    position: absolute;
+    top:0;
+    left: 0;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0,0,0,.7);
+}
+.confirmMsg{
+    width: 45vw;
+    height: 20vh;
+
+    border: 3px solid var(--accent-font-colorShade);
+    background-color: var(--bkg-color);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+}

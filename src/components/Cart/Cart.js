@@ -12,9 +12,10 @@ function Cart() {
             
         { cart.length === 0 ?
             <section className="EmptyCart">
-                <i className="fas fa-shopping-cart"></i>
-                <article>Todavía no has agregado ningún producto a tu carrito</article>
-                
+                <div className="emptMsg">
+                    <i className="fas fa-shopping-cart"></i>
+                    <article>Todavía no has agregado ningún producto a tu carrito</article>
+                </div>
                 <Link className="redirect" to="/"><img src={logo} className="Cart-logo" alt="logo" />  Buscá tu próximo juego...</Link>
             </section>
                 :

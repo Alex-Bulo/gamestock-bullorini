@@ -6,8 +6,8 @@ import './ItemDetail.css'
 
 
 function ItemDetail({item}) {
+    const [added, setAdded] = useState(false)
     const pics = useRef(null)
-    const [qtyToCart, setQtyToCart] = useState(null)
     const {addItem} = useCart()
 
     function picsHandler (){
@@ -18,19 +18,14 @@ function ItemDetail({item}) {
         e.stopPropagation()
     }
     function onAdd (qtyToAdd){
-        setQtyToCart(qtyToAdd)
 
-    }
-    function addToCartHandler (){
         const info = {
             ...item,
-            qty: qtyToCart
+            qty: qtyToAdd
         }
-
+    
         const success = addItem(info)
-
-
-        success ? alert('Producto agregado al Carrito') : alert('Producto existe en el carrito')
+        success && setAdded(true)
     }
 
     return (
@@ -63,7 +58,7 @@ function ItemDetail({item}) {
                         <p>Stock: {item.stock}</p>
                     </div>
                 <p className="gameDescription">{item.description}</p>
-                { !qtyToCart ? <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/> : <Link to='/cart' onClick={addToCartHandler}><button className='addBtn'>Terminar Compra</button></Link>}
+                { !added ? <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/> : <Link to='/cart' ><button className='addBtn'>Terminar Compra</button></Link>}
 
                 </div>    
 

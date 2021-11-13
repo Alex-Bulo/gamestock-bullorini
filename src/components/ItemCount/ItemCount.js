@@ -2,7 +2,7 @@ import './ItemCount.css'
 import { useState } from 'react';
 
 function ItemCount({stock,initial,onAdd}) {
-    const [counter, setCounter] = useState(initial || 0)
+    const [counter, setCounter] = useState(initial || 1)
     
 
     const increase = ()=>{
@@ -12,7 +12,7 @@ function ItemCount({stock,initial,onAdd}) {
         setCounter(newCounter )
     }
     const decrease = ()=>{
-        const newCounter = counter === 0 ? counter : counter - 1
+        const newCounter = counter === 1 ? counter : counter - 1
         setCounter( newCounter )
     }
 
@@ -26,7 +26,7 @@ function ItemCount({stock,initial,onAdd}) {
                     <button onClick={increase}>+</button>
                 </div>
                 
-                <button className="addBtn" onClick={()=>onAdd(counter)}>Confirmar</button>            
+                <button className="addBtn" onClick={()=>onAdd(counter)}>Agregar</button>            
             
             </section>
         </div>

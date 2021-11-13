@@ -12,7 +12,15 @@
   --accent-font-color: #1e8881;
   --accent-font-colorShade: rgba(30, 136, 129, .25);
 }
+.noShow{
+  display: none;
+}
+.show{
+  z-index: 999;
+  display: flex;
 
+}
+/* *************************************************************** */
 
 .App {
   text-align: center;
