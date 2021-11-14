@@ -9,25 +9,19 @@ import NotFoundContainer from './components/NotFoundContainer/NotFoundContainer'
 import Cart from './components/Cart/Cart';
 import {CartProvider} from './context/CartContext'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { AuthProvider } from './context/AuthContext';
+import { useAuth } from './context/AuthContext';
 import Profile from './components/Profile/Profile';
 
 
 function App() {
-  //seteo estado de colorTheme por defecto = light
-  const [theme, setTheme] = useState('light')
-
-  //en el primer render chequea si el usuario tiene preferencia de colorTheme, y cambia el estado theme
-  useEffect( ()=>{
-  const prefersTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light'
-    setTheme(prefersTheme)
-},[])
+  const {preference} = useAuth()
+  
 
   const app = useRef(null)
-//funcion que permite cambiar el colorTheme al usuario (se pasa al hijo, NavBar)
+
   const themeChange = () =>{
-    const newTheme = theme==='dark'?'light':'dark'
-    setTheme(newTheme)
+    const newTheme = preference.theme==='dark'?'light':'dark'
+    preference.setTheme(newTheme)
   }    
     
   const greeting = 'Todos nuestros juegos'
@@ -35,16 +29,16 @@ function App() {
 
 
     return (
-    <div ref={app} className={`App ${theme}`}>
-      <AuthProvider>
-        <CartProvider>
+  
+      <div ref={app} className={`App ${preference.theme}`}>
+          <CartProvider>
           <BrowserRouter>
-          <NavBar 
-                categories={categories} 
-                themeIcon={theme==='dark'?'fas fa-sun':'fas fa-moon'}
-                themeHandler={themeChange}
-                />
-              
+            <NavBar 
+                  categories={categories} 
+                  themeIcon={preference.theme==='dark'?'fas fa-sun':'fas fa-moon'}
+                  themeHandler={themeChange}
+                  />
+                
 
               <Switch>
                 <Route exact path="/">
@@ -71,9 +65,9 @@ function App() {
 
 
             </BrowserRouter>
-          </CartProvider>
-        </AuthProvider>
-    </div>
+            </CartProvider>
+          </div>
+            
   );
 }
 

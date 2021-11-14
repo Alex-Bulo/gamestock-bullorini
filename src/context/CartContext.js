@@ -8,6 +8,7 @@ export const CartProvider = ( {children} ) => {
     const [cart, setCart] = useState( [] )
 
     const [totalItems, setTotalItems] = useState(0)
+
     useEffect( ()=>{
         const newTotal = cart.reduce( (acum, item)=> acum + item.qty, 0 )
 
@@ -20,41 +21,30 @@ export const CartProvider = ( {children} ) => {
 
     const addItem = (item) =>{
 
-        let toReturn
         switch (isInCart(item)) {
             case 'differentItems':
                 const newCart = [...cart, item] 
 
                 setCart(newCart)
-                toReturn = true
-
-            break;
+                return true;
             
             case 'inCart':
             case 'differentQty':
-                const filteredCart = cart.filter(i => i.id !== item.id)
-                const sameItem = cart.filter(i=> i.id === item.id)
+                const nextCart = [...cart]
+                nextCart.find( i => {
+                    if(i.id === item.id){
+                        const newQty = i.qty + item.qty
+                        i.qty =newQty > item.stock ? item.stock : newQty
+                    }
 
-                const newQty = item.qty + sameItem[0].qty
-                const newItem = {
-                    ...item, 
-                    qty: newQty > item.stock ? item.stock : newQty}
-                
-                const filteredNewCart = [...filteredCart, newItem]
-                setCart(filteredNewCart)
-                toReturn = true
+                })
+                setCart(nextCart)
+                return true
 
-                break;
             default:
-                toReturn = false
-                break;
+                return false
 
         }
-        
-
-       
-
-        return toReturn
         
     }
 
@@ -62,9 +52,6 @@ export const CartProvider = ( {children} ) => {
 
         const updatedCart = cart.filter ( e => e.id !== item )
         setCart(updatedCart)
-
-        // const newTotal = cart.reduce( (acum, item)=> acum + item.qty, 0 )
-        // setTotalItems(newTotal)
     
     }
 
@@ -88,7 +75,6 @@ export const CartProvider = ( {children} ) => {
 
     const clearCart = () =>{
         setCart( [] )
-        // setTotalItems(0)
     }
 
     return(

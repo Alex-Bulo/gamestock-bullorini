@@ -1,0 +1,23 @@
+.Profile{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.Profile span{
+    color: var(--accent-font-color);
+}
+
+.logOutBtn{
+    cursor: pointer;
+    font-size: 1em;
+    padding: 5px;
+
+    background-color: var(--accent-font-colorShade);
+}
+.logOutBtn:hover{
+    
+    background-color: rgb(100, 0, 0);
+    transition: all 1s;
+}

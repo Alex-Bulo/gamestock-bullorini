@@ -1,4 +1,4 @@
-import {createContext, useContext, useState} from 'react'
+import {createContext, useContext, useEffect, useState} from 'react'
 import {users} from '../helpers/data'
 
 const AuthContext = createContext();
@@ -7,6 +7,7 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ( {children} ) => {
     const [user, setUser] = useState(null)
+
 
     const logIn = (mail,password) =>{
         const getUsers = 
@@ -35,9 +36,20 @@ export const AuthProvider = ( {children} ) => {
         setUser( null )
     }
 
+    const [theme, setTheme] = useState('light')
+
+    //en el primer render chequea si el usuario tiene preferencia de colorTheme, y cambia el estado theme
+    useEffect( ()=>{
+        console.log('here');
+    const prefersTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light'
+      setTheme(prefersTheme)
+  },[])
+
+
+
     return(
 
-        <AuthContext.Provider value={ {user, logIn, logOut} }>
+        <AuthContext.Provider value={ {user, logIn, logOut, preference:{theme,setTheme}} }>
             {children}
         </AuthContext.Provider>
     )

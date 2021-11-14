@@ -17,12 +17,12 @@ function LogIn({view}) {
     }
 
     return (
-        <section onClick={notClose} className={`LogIn ${view?'show':'noShow'}`}>
+        <form onClick={notClose} onSubmit={(e)=>e.preventDefault()} className={`LogIn ${view?'show':'noShow'}`}>
             <h4>Ingresa</h4>
             <input type='email' className='email' ref={mail}/>
             <input type='password' className='pass'ref={pass}/>
             <button className='logInBtn' onClick={onLogIn}>Ingresar</button>
-        </section>
+        </form>
     );
 }
 

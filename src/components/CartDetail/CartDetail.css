@@ -1,10 +1,24 @@
 .CartDetail{
     margin-top: 35px;
+    padding-bottom: 5px;
     width: 90%;
     display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     border-bottom: 1px solid var(--accent-font-colorShade);
 }
+
+
+@media (min-width: 769px){
+    
+    .CartDetail{
+        flex-direction: row;
+    
+    }
+}
+
+
 
 .cart-imgContainer{
     width: 20%;
@@ -30,7 +44,7 @@
     cursor: pointer;
     font-size: 1em;
     padding: 5px;
-    /* margin-top: 5px; */
+
     background-color: var(--accent-font-colorShade);
 }
 .removeBtn:hover{
@@ -38,8 +52,3 @@
     background-color: rgb(100, 0, 0);
     transition: all 1s;
 }
-
-/* .countButtons button:hover{
-    background-color: var(--accent-font-color);
-    border: none;
-} */

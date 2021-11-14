@@ -16,9 +16,19 @@
     padding: 10px;
 
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
     border: 1px solid var(--accent-font-color);
 
 }
+
+
+@media (min-width: 769px){
+    
+    .cartTop{
+        flex-direction: row;
+    }
+}
+

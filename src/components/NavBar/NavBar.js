@@ -12,7 +12,10 @@ function NavBar(props) {
     const {user} = useAuth()
 
     function logInHandler (e){
-        setShowLogIn(!showLogIn)
+        if(!user){
+            e.preventDefault()
+            setShowLogIn(!showLogIn)
+        }
     }
 
     return (
@@ -34,7 +37,7 @@ function NavBar(props) {
                     :'Bienvenido/a'
                     }
 
-                    <li className="NavBar-items NavBar-login" onClick={logInHandler}> <i className="fas fa-user"></i> {user ? user.name:'Ingresar'} 
+                    <li className="NavBar-items NavBar-login"><Link to='/profile' onClick={(e)=>logInHandler(e)}> <i className="loginIcn fas fa-user"></i> {user ? user.name:'Ingresar'} </Link>
                             {!user && <LogIn view={showLogIn}/> }
                     </li>
                     

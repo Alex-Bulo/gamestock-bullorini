@@ -23,10 +23,11 @@
 /* *************************************************************** */
 
 .App {
+  min-height: 100vh;
+  width: 100vw;
   text-align: center;
   background-color: var(--bkg-color);
   color: var(--font-color);
-  height: 100vh;
 }
 
 .App-header {
