@@ -1,7 +1,7 @@
 import NavBar from './components/NavBar/NavBar';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { categories } from './helpers/data';
