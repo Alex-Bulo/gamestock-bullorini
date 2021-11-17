@@ -21,7 +21,7 @@ function ItemDetailContainer() {
 
         getDoc(productInBase).then( snapshot => {
             if(snapshot.exists()) {
-                setItem( snapshot.data() )
+                setItem( {...snapshot.data(), id} )
                 setLoading(false)
             }else{
                 setLoading(false)  

@@ -56,10 +56,9 @@ export const CartProvider = ( {children} ) => {
     }
 
     const isInCart = (item) =>{
-
         const isId = cart.some(i => i.id === item.id)
-        const isQty = cart.some(i => i.id===item.id && i.qty===item.qty)
-
+        const isQty = cart.some(i => i.id === item.id && i.qty===item.qty)
+        
 // id = true -> qty=true   : true
 // id = false -> qty=false  : false
 // id = true -> qty=false  : false
