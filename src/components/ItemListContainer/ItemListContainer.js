@@ -3,50 +3,62 @@ import { useParams } from 'react-router';
 import Loader from "react-loader-spinner";
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
-import {data,categories} from '../../helpers/data'
+import { getFirestore } from '../../firebase';
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 
 
-function ItemListContainer(props) {
+function ItemListContainer({categories}) {
     const [products, setProducts] = useState(null)
     const [msg, setMsg] = useState(null)
     const [loading, setLoading] = useState(true)
     const {id} = useParams()
 
-
     useEffect( () => {
         setProducts(null)
         setLoading(true)
-        const getProducts = new Promise ((resolve)=>{
-            setTimeout( ()=> {
-                resolve(data)
-            },3000)
+
+        const db = getFirestore();
+        let dinamicMsg
+        let q
+
+        const isInCategories = categories.find( category => category.key === id)
+
+        if(id && isInCategories ){
+
+            q = query(
+                collection(db, "items"),
+                where("category", "==", id)
+            );
+            dinamicMsg = "Nuestros juegos para " + id
+
+        }else{
+            q = query(
+                collection(db, "items")
+            );
+            dinamicMsg = "Todos nuestros juegos"
+        }
+        
+        getDocs(q).then( snapshot => {
+        // console.log(snapshot.docs[0].id)
+    
+            setProducts(
+                snapshot.docs.map( doc => {
+                const productInBase = { ...doc.data(), id: doc.id };
+                return productInBase;
+                })
+            )
+            setMsg(dinamicMsg)
+            setLoading(false)
         })
 
-        getProducts
-            .then((result)=>{
-                
-                    if(id && categories.indexOf(id)>=0 ){
-                        const info = result.filter(e => e.category === id)
-                        setMsg("Nuestros juegos para " + id)
-                        setProducts(info)
-                    }else{
-                        setMsg("Todos nuestros juegos")
-                        setProducts(result)
-                        
-                    }  
-
-                    setLoading(false)
-                }
-            )
-        },[id])
+    },[id,categories])
 
 
     return (
         <section className="ItemListContainer">
             {products && 
                 <>
-                    {props.greeting && <h4 className="catTitle">{props.greeting}</h4>}
                     {id && <h4 className="catTitle">{msg}</h4>}
                     <ItemList items={products}/>
                     

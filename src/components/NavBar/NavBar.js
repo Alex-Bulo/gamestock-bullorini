@@ -32,7 +32,7 @@ function NavBar(props) {
                     
                     { props.categories ?
                     props.categories.map( (category,i) =>{
-                        return <li key={i} className="NavBar-items"> <Link to={`/category/${category}`} className="NavBar-menuItems"> {category} </Link></li>
+                        return <li key={i} className="NavBar-items"> <Link to={`/category/${category.key}`} className="NavBar-menuItems"> {category.name} </Link></li>
                     })
                     :'Bienvenido/a'
                     }

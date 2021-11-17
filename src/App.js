@@ -1,30 +1,48 @@
 import NavBar from './components/NavBar/NavBar';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import { categories } from './helpers/data';
 import NotFoundContainer from './components/NotFoundContainer/NotFoundContainer';
 import Cart from './components/Cart/Cart';
 import {CartProvider} from './context/CartContext'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { useAuth } from './context/AuthContext';
 import Profile from './components/Profile/Profile';
-
+import { getFirestore } from './firebase';
+import { collection, query, getDocs } from "firebase/firestore";
 
 function App() {
-  const {preference} = useAuth()
+      const [categories, setCategories] = useState(null)
+
+      const {preference} = useAuth()
+      const app = useRef(null)
   
+      useEffect(()=>{
+            const db = getFirestore();
+            const q = query( 
+                  collection(db, "categories")
+              );
+            
+            getDocs(q).then( snapshot => {
+            // console.log(snapshot.docs[0].id)
+            
+                  setCategories(
+                        snapshot.docs.map( doc => {
+                              const categoryInBase = { ...doc.data()};
+                              return categoryInBase;
+                        })
+                  )
+            })
 
-  const app = useRef(null)
+      },[])
+      
 
-  const themeChange = () =>{
-    const newTheme = preference.theme==='dark'?'light':'dark'
-    preference.setTheme(newTheme)
-  }    
-    
-  const greeting = 'Todos nuestros juegos'
+      const themeChange = () =>{
+            const newTheme = preference.theme==='dark'?'light':'dark'
+            preference.setTheme(newTheme)
+      }    
 
 
 
@@ -42,11 +60,11 @@ function App() {
 
               <Switch>
                 <Route exact path="/">
-                      <ItemListContainer greeting={greeting}/>
+                      {categories && <ItemListContainer categories={categories}/>}
                 </Route>
 
                 <Route path="/category/:id">
-                      <ItemListContainer/>
+                      {categories && <ItemListContainer categories ={categories}/>}
                 </Route>
                 
                 <Route path="/item/:id">

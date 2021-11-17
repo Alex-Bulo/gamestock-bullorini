@@ -1,33 +1,35 @@
 import { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import Loader from "react-loader-spinner";
-import {data} from '../../helpers/data'
 import { Redirect, useParams } from 'react-router';
 import './ItemDetailContainer.css'
+import { getFirestore } from '../../firebase';
+import { doc, getDoc } from "firebase/firestore";
 
 
-function ItemDetailContainer(props) {
+
+function ItemDetailContainer() {
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
     const {id} = useParams()
 
     useEffect( () => {
-        const getItems = 
-            new Promise ((resolve)=>{
-                setTimeout( ()=> {
-                    resolve(data)
-                },2000)
-            })
 
-        getItems
-            .then((result)=>{
-                    const info = result.find (e => e.id === Number(id))
+        const db = getFirestore();
 
-                    setItem(info)
-                    setLoading(false)
-                }
-            )
-        },[id])
+        const productInBase = doc(db, "items", id);
+
+        getDoc(productInBase).then( snapshot => {
+            if(snapshot.exists()) {
+                setItem( snapshot.data() )
+                setLoading(false)
+            }else{
+                setLoading(false)  
+            }
+        })
+    
+            
+    },[id])
 
     return (
         <section className="ItemDetailContainer">

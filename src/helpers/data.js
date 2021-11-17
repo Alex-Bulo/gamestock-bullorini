@@ -15,8 +15,7 @@ export const data = [
         category:'playstation',
         released:'2021-09-27',
         images:["https://media.rawg.io/media/screenshots/d17/d17014c92b468bb850d882f646f8c5fb.jpg","https://media.rawg.io/media/screenshots/ed8/ed8e23ab0522a264ae0756d80a14c521.jpg","https://media.rawg.io/media/screenshots/955/9557c44f07a713d9b97776a19bbcd968.jpg"]
-    },  
-        
+    }, 
     {
         id:2, 
         title:'Virtua Tennis 4', 
@@ -28,9 +27,6 @@ export const data = [
         released:'2011-04-29',
         images:["https://media.rawg.io/media/games/8ec/8ecf2f90e684d59cd88096689607e444.jpg","https://media.rawg.io/media/screenshots/160/160b0ea8d18348779842258a0c11305c.jpg","https://media.rawg.io/media/screenshots/160/160b0ea8d18348779842258a0c11305c.jpg"]
     },
-
-
-    
     {
         id:3, 
         title:'NBA 2K21', 
@@ -42,7 +38,6 @@ export const data = [
         released:'2020-09-04',
         images:["https://media.rawg.io/media/screenshots/854/8548fff19691826681f7e16839613d85.jpg","https://media.rawg.io/media/screenshots/751/751fd37e6d439398705e9d8e53490a95.jpg","https://media.rawg.io/media/screenshots/b9e/b9ec9f76cd25ca2ccbc9169494463ad7.jpg"]
     },
-
     {
         id:4, 
         title:'Forza Horizon 5', 
@@ -54,7 +49,6 @@ export const data = [
         released:'2021-11-09',
         images:["https://media.rawg.io/media/screenshots/5e2/5e2e7ccb084034da25d0b21b7c03c273.jpg","https://media.rawg.io/media/screenshots/32c/32c5651c381e6b628c5ac681601a036a.jpg","https://media.rawg.io/media/screenshots/6c6/6c69fe99ec23d08b2b0a62feb9d89c65.jpg"]
     },
-
     {
         id:5,
         title:'Grand Theft Auto V',
@@ -66,7 +60,6 @@ export const data = [
         released: "2013-09-17",
         images:["https://media.rawg.io/media/screenshots/a7e/a7e990bc574f4d34e03b5926361d1ee7.jpg","https://media.rawg.io/media/screenshots/a7c/a7c43871a54bed6573a6a429451564ef.jpg","https://media.rawg.io/media/screenshots/cf4/cf4367daf6a1e33684bf19adb02d16d6.jpg"]
     },
-    
     {
         id:6,
         title:'The Witcher 3',
@@ -78,7 +71,6 @@ export const data = [
         released: "2015-05-18",
         images:["https://media.rawg.io/media/screenshots/862/862397b153221a625922d3bb66337834.jpg","https://media.rawg.io/media/screenshots/cdd/cdd31b6b4a687425a87b5ce231ac89d7.jpg","https://media.rawg.io/media/screenshots/6a0/6a08afca95261a2fe221ea9e01d28762.jpg"]
     },
-    
     {
         id:7,
         title:'The Witcher 3',
@@ -90,7 +82,6 @@ export const data = [
         released: "2015-05-18",
         images:["https://media.rawg.io/media/screenshots/862/862397b153221a625922d3bb66337834.jpg","https://media.rawg.io/media/screenshots/cdd/cdd31b6b4a687425a87b5ce231ac89d7.jpg","https://media.rawg.io/media/screenshots/6a0/6a08afca95261a2fe221ea9e01d28762.jpg"]
     },
-
     {
         id:8,
         title:'Left 4 Dead 2',
@@ -102,7 +93,6 @@ export const data = [
         released: "2009-11-17",
         images:["https://media.rawg.io/media/screenshots/c90/c9071628c238fbc20b366e2413dd8b4a.jpg","https://media.rawg.io/media/screenshots/168/16867bc76b385eb0fb749e41f7ada93d.jpg","https://media.rawg.io/media/screenshots/fb9/fb917e562f311f48ff8d27632bd29a80.jpg"]
     },
-    
     {
         id:9,
         title:'Red Dead Redemption 2',
@@ -114,7 +104,6 @@ export const data = [
         released: "2018-10-26",
         images:["https://media.rawg.io/media/screenshots/7b8/7b8895a23e8ca0dbd9e1ba24696579d9.jpg","https://media.rawg.io/media/screenshots/857/8573b9f4f06a0c112d6e39cdf3544881.jpg","https://media.rawg.io/media/screenshots/985/985e3e1f1d1af1ab0797d43a95d472cc.jpg"]
     },
-
     {
         id:10,
         title:'Red Dead Redemption 2',
@@ -125,8 +114,7 @@ export const data = [
         category:'xbox',
         released: "2018-10-26",
         images:["https://media.rawg.io/media/screenshots/7b8/7b8895a23e8ca0dbd9e1ba24696579d9.jpg","https://media.rawg.io/media/screenshots/857/8573b9f4f06a0c112d6e39cdf3544881.jpg","https://media.rawg.io/media/screenshots/985/985e3e1f1d1af1ab0797d43a95d472cc.jpg"]
-    },
-
+    }, 
     {
         id:11,
         title:'Rocket League',
