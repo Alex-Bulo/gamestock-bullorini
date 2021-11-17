@@ -26,25 +26,39 @@ export const CartProvider = ( {children} ) => {
                 const newCart = [...cart, item] 
 
                 setCart(newCart)
+
                 return true;
-            
+                
             case 'inCart':
             case 'differentQty':
                 const nextCart = [...cart]
-                nextCart.find( i => {
+                nextCart.forEach( i => {
                     if(i.id === item.id){
                         const newQty = i.qty + item.qty
                         i.qty =newQty > item.stock ? item.stock : newQty
                     }
-
+                    
                 })
                 setCart(nextCart)
+
                 return true
 
             default:
                 return false
 
         }
+        
+    }
+
+    const editItem = (item) =>{
+                const newCart = [...cart]
+                newCart.forEach( i => {
+                    if(i.id === item.id){
+                         i.qty = item.qty > item.stock ? item.stock : item.qty
+                    }
+
+                })
+                setCart(newCart)
         
     }
 
@@ -78,7 +92,7 @@ export const CartProvider = ( {children} ) => {
 
     return(
 
-        <CartContext.Provider value={ {cart,totalItems, addItem, removeItem, isInCart, clearCart} }>
+        <CartContext.Provider value={ {cart,totalItems, addItem, editItem, removeItem, isInCart, clearCart} }>
             {children}
         </CartContext.Provider>
     )

@@ -6,7 +6,7 @@ import './CartDetail.css'
 
 function CartDetail({item}) {
     const [removeBox,setRemoveBox] = useState(false)
-    const {addItem, removeItem} = useCart()
+    const {cart,editItem, removeItem} = useCart()
 
     function addToCartHandler (qtyToAdd){
         
@@ -14,10 +14,10 @@ function CartDetail({item}) {
             ...item,
             qty: qtyToAdd
         }
+        // console.log('cartinfo',cart);
         
-        addItem(info)
+        editItem(info)
     }
-
     return (
         <article className="CartDetail">
             <div className="cart-imgContainer"><img src={item.pictureUrl} alt={`Foto de Portada de ${item.title}`}/></div>
@@ -32,7 +32,7 @@ function CartDetail({item}) {
 
             <div className="cart-buttons">
 
-                <ItemCount initial={item.qty} stock={item.stock} onAdd={addToCartHandler}/>
+                <ItemCount initial={item.qty} stock={item.stock} onConfirm={{onEdit:addToCartHandler}}/>
                 <button className="removeBtn" style={{marginTop:'5px'}} onClick={()=>setRemoveBox(true)}>Eliminar</button>
 
                     <ConfirmPopUp box={{removeBox,setRemoveBox}} actionBtn={()=>removeItem(item.id)}>

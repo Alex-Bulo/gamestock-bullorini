@@ -1,7 +1,7 @@
 import './ItemCount.css'
 import { useState } from 'react';
 
-function ItemCount({stock,initial,onAdd}) {
+function ItemCount({stock,initial,onConfirm}) {
     const [counter, setCounter] = useState(initial || 1)
     
 
@@ -15,6 +15,15 @@ function ItemCount({stock,initial,onAdd}) {
         const newCounter = counter === 1 ? counter : counter - 1
         setCounter( newCounter )
     }
+    const confirmHandler = () =>{
+        if(onConfirm.onAdd){
+            onConfirm.onAdd(counter)
+        }else{
+            // console.log(counter);
+            onConfirm.onEdit(counter)
+        }
+
+    }
 
     return (
         <div className="ItemCount">
@@ -26,7 +35,7 @@ function ItemCount({stock,initial,onAdd}) {
                     <button onClick={increase}>+</button>
                 </div>
                 
-                <button className="addBtn" onClick={()=>onAdd(counter)}>Agregar</button>            
+                <button className="addBtn" onClick={confirmHandler}>Confirmar</button>            
             
             </section>
         </div>

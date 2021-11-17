@@ -23,9 +23,10 @@ function ItemDetail({item}) {
             ...item,
             qty: qtyToAdd
         }
-    
+
         const success = addItem(info)
         success && setAdded(true)
+
     }
 
     return (
@@ -58,7 +59,7 @@ function ItemDetail({item}) {
                         <p>Stock: {item.stock}</p>
                     </div>
                 <p className="gameDescription">{item.description}</p>
-                { !added ? <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/> : <Link to='/cart' ><button className='addBtn'>Terminar Compra</button></Link>}
+                { !added ? <ItemCount initial={1} stock={item.stock} onConfirm={{onAdd:onAdd}}/> : <Link to='/cart' ><button className='addBtn'>Terminar Compra</button></Link>}
 
                 </div>    
 
