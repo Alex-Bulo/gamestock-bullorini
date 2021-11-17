@@ -5,7 +5,6 @@ import './Checkout.css'
 import { getFirestore } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import ConfirmPopUp from '../ConfirmPopUp/ConfirmPopUp';
-import { Link } from 'react-router-dom';
 
 
 function Checkout({close}) {  
