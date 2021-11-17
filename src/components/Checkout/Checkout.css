@@ -1,0 +1,51 @@
+
+.bkg-Checkout{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    .Checkout{
+    position:relative;
+    width: 60vw;
+    height: 40vh;
+
+    /* top:50%;
+    left:50%; */
+    /* transform: translate(-50%,-50%); */
+
+    background-color: var(--bkg-color);
+    border: 2px solid var(--accent-font-color);
+    color: var(--font-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.inputContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.inputContainer label{
+    margin-left: 15px;
+}
+.inputContainer input{
+    margin-right: 15px;
+    width: 55%;
+    line-height: 1.5em;
+}
+.exitIcn{
+    position: absolute;
+
+    right: 15px;
+    top: 15px;
+
+    font-size: 1.3em;
+    cursor: pointer;
+}
