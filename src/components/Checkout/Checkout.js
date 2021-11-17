@@ -3,7 +3,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 import './Checkout.css'
 import { getFirestore } from "../../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, updateDoc, increment } from "firebase/firestore";
 import ConfirmPopUp from '../ConfirmPopUp/ConfirmPopUp';
 
 
@@ -79,9 +79,15 @@ function Checkout({close}) {
 
         addDoc(ordersCollection, order).then( ({ id }) => setNewOrder(id) );
 
-        
+                
+        cart.forEach( i => {    
+            const productInBase = doc(db, "items", i.id);
+            
+            updateDoc(productInBase, { stock: increment( (-i.qty) )});
 
+        })
     }
+
 
     return (
         <div className="bkg-Checkout">

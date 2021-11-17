@@ -6,7 +6,7 @@ import './CartDetail.css'
 
 function CartDetail({item}) {
     const [removeBox,setRemoveBox] = useState(false)
-    const {cart,editItem, removeItem} = useCart()
+    const {editItem, removeItem} = useCart()
 
     function addToCartHandler (qtyToAdd){
         
@@ -14,7 +14,6 @@ function CartDetail({item}) {
             ...item,
             qty: qtyToAdd
         }
-        // console.log('cartinfo',cart);
         
         editItem(info)
     }
