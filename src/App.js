@@ -12,6 +12,7 @@ import { useAuth } from './context/AuthContext';
 import Profile from './components/Profile/Profile';
 import { getFirestore } from './firebase';
 import { collection, query, getDocs } from "firebase/firestore";
+import Register from './components/Register/Register';
 
 function App() {
       const [categories, setCategories] = useState(null)
@@ -75,6 +76,9 @@ function App() {
                 </Route>
                 <Route path="/profile">
                       <Profile/>
+                </Route>
+                <Route path="/register">
+                      <Register/>
                 </Route>
                 <Route path="*">
                       <NotFoundContainer/>

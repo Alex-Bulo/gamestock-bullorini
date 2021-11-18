@@ -1,0 +1,33 @@
+.Register{
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+.registerContainer input{
+    width: 55%;
+    margin: 15px;
+}
+
+.avatarContainer,
+.avatarChoice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.avatarContainer{
+cursor: pointer;
+}
+.avatarContainer input{
+    width: initial;
+}
+.avatarContainer img{
+    width: 150px;
+}

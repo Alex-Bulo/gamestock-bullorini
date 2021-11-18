@@ -1,36 +1,39 @@
 import {createContext, useContext, useEffect, useState} from 'react'
-import {users} from '../helpers/data'
+import { getFirestore } from '../firebase';
+import { collection, query, where, getDocs } from "firebase/firestore";
+
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
+
+
 export const AuthProvider = ( {children} ) => {
     const [user, setUser] = useState(null)
 
+    const logIn = (mail,pass)=>{
+        const db = getFirestore();
+        
+        // console.log(mail);
+        const q = query(
+            collection(db, "users"),
+            where("mail", "==", mail),
+            where("pass","==",pass)
+        );
+            
+        let newUser
+        getDocs(q).then( snapshot => {
+            // console.log(snapshot);
+                if(!snapshot.empty){
 
-    const logIn = (mail,password) =>{
-        const getUsers = 
-        new Promise ((resolve)=>{
-            setTimeout( ()=> {
-                resolve(users)
-            },2000)
+                    newUser = snapshot.docs.map( doc =>  doc.data())
+                    // console.log(newUser);
+                    setUser( ...newUser )
+                }
         })
-
-    getUsers
-        .then((result)=>{
-                let foundUser
-                result.forEach (u =>{
-                    if(u.mail === mail && u.password === password){
-                        foundUser = u
-                    }
-                })
-                foundUser && setUser(foundUser)
-            }
-        )        
     }
-
-
+    
 
     const logOut = () =>{
         setUser( null )

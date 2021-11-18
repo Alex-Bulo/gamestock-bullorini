@@ -8,7 +8,9 @@
 .Profile span{
     color: var(--accent-font-color);
 }
-
+.avatarPic{
+    width: 30vw;
+}
 .logOutBtn{
     cursor: pointer;
     font-size: 1em;

@@ -10,7 +10,7 @@ function Profile() {
         user ?
             <div className="Profile">
                 <h2 className='welcomeMsg'>Hola <span>{user.name}</span>!</h2>
-                <img src={user.pic} alt={`foto de perfil de ${user.name} ${user.lastName}`}/>
+                <img className='avatarPic' src={user.pic} alt={`foto de perfil de ${user.name} ${user.lastName}`}/>
                 <p className="profileInfo">Tu preferencia es el <span> {preference.theme} </span>mode</p>
                 <p className="profileInfo">Estas registrado con tu mail: <span>{user.mail}</span></p>
                 <button className='logOutBtn' onClick={logOut}>Log Out</button>

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import './LogIn.css'
 
@@ -22,6 +23,7 @@ function LogIn({view}) {
             <input type='email' className='email' ref={mail}/>
             <input type='password' className='pass'ref={pass}/>
             <button className='logInBtn' onClick={onLogIn}>Ingresar</button>
+            <Link to='/register'>Registrarse</Link>
         </form>
     );
 }
