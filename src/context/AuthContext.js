@@ -41,9 +41,16 @@ export const AuthProvider = ( {children} ) => {
 
     const [theme, setTheme] = useState('light')
 
+    
+    const themeChange = () =>{
+        const newTheme = theme==='dark'?'light':'dark'
+        setTheme(newTheme)
+  }    
+
+
+
     //en el primer render chequea si el usuario tiene preferencia de colorTheme, y cambia el estado theme
     useEffect( ()=>{
-        console.log('here');
     const prefersTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light'
       setTheme(prefersTheme)
   },[])
@@ -52,7 +59,7 @@ export const AuthProvider = ( {children} ) => {
 
     return(
 
-        <AuthContext.Provider value={ {user, logIn, logOut, preference:{theme,setTheme}} }>
+        <AuthContext.Provider value={ {user, logIn, logOut, preference:{theme, themeChange}} }>
             {children}
         </AuthContext.Provider>
     )

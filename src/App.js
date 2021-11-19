@@ -27,7 +27,7 @@ function App() {
               );
             
             getDocs(q).then( snapshot => {
-            // console.log(snapshot.docs[0].id)
+
             
                   setCategories(
                         snapshot.docs.map( doc => {
@@ -40,13 +40,7 @@ function App() {
       },[])
       
 
-      const themeChange = () =>{
-            const newTheme = preference.theme==='dark'?'light':'dark'
-            preference.setTheme(newTheme)
-      }    
-
-
-
+ 
     return (
   
       <div ref={app} className={`App ${preference.theme}`}>
@@ -55,7 +49,7 @@ function App() {
             <NavBar 
                   categories={categories} 
                   themeIcon={preference.theme==='dark'?'fas fa-sun':'fas fa-moon'}
-                  themeHandler={themeChange}
+                  themeHandler={preference.themeChange}
                   />
                 
 
@@ -65,7 +59,7 @@ function App() {
                 </Route>
 
                 <Route path="/category/:id">
-                      {categories && <ItemListContainer categories ={categories}/>}
+                      {categories && <ItemListContainer categories={categories}/>}
                 </Route>
                 
                 <Route path="/item/:id">

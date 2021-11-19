@@ -19,28 +19,32 @@ function ItemListContainer({categories}) {
         setLoading(true)
 
         const db = getFirestore();
-        let dinamicMsg
-        let q
+  
+        let q 
 
         const isInCategories = categories.find( category => category.key === id)
+        const hasInIdAndInCategories = id && isInCategories
+        const dinamicMsg = hasInIdAndInCategories ? "Nuestros juegos para " + id : "Todos nuestros juegos"
 
-        if(id && isInCategories ){
-
+        // Corrección clase Workshop, no funciona :( 'Cannot read properties of undefined (reading '_apply')'
+        // q = query(
+        //     collection(db, "items"),
+        //     hasInIdAndInCategories ? where("category", "==", id) : undefined
+        // );
+        
+        if(hasInIdAndInCategories){
             q = query(
                 collection(db, "items"),
                 where("category", "==", id)
             );
-            dinamicMsg = "Nuestros juegos para " + id
-
         }else{
             q = query(
                 collection(db, "items")
-            );
-            dinamicMsg = "Todos nuestros juegos"
+            )
         }
+
         
         getDocs(q).then( snapshot => {
-        // console.log(snapshot.docs[0].id)
     
             setProducts(
                 snapshot.docs.map( doc => {

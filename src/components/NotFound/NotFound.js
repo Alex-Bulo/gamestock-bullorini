@@ -26,7 +26,7 @@ function NotFound({game}) {
             return () => clearInterval(timeLapse)
         }    
     }   
-        ,[gamePic])
+        ,[gamePic, game.images.length])
 
     return (
         <section className="NotFound">

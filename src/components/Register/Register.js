@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { getFirestore } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
@@ -8,23 +8,32 @@ import { Link } from 'react-router-dom';
 
 
 function Register() {
-    
-    const mail = useRef(null)
-    const pass = useRef(null) 
-    const name = useRef(null) 
-    const lastName = useRef(null) 
     const avatar1 = useRef(null) 
     const {logIn, user} = useAuth()
+    
+
+    const [formFields, setFormFields] = useState({
+        name: "",
+        lastName: "",
+        pass: "",
+        mail:""
+      });
+    
+      function handleChange(evt) {
+        setFormFields({ ...formFields, [evt.target.name]: evt.target.value });
+      }
+
+
 
 
     function onRegister (){
 
         const pic = avatar1.current.checked ? 'https://cdn3.iconfinder.com/data/icons/delivery-and-logistic-flat/64/23_customer_service_avatar_woman_delivery_logistic_-512.png' : 'https://i.imgur.com/oPh3qdq.png'
         const newUser = {
-            name: name.current.value,
-            lastName: lastName.current.value,
-            mail: mail.current.value,
-            pass: pass.current.value,
+            name: formFields.name,
+            lastName: formFields.lastName,
+            mail: formFields.mail,
+            pass: formFields.pass,
             pic
         }
 
@@ -33,7 +42,7 @@ function Register() {
         const usersCollection = collection(db, "users");
 
         addDoc(usersCollection, {...newUser}).then( ({ id }) => {
-            console.log('New user ID: ', id)
+            // console.log('New user ID: ', id)
             logIn(newUser.mail,newUser.pass)
 
         })
@@ -48,22 +57,22 @@ function Register() {
                 <h4>Registrate!</h4>
                 <div className='registerContainer'>
                     <label>Nombre</label>
-                    <input type='name' className='text' ref={name}/>
+                    <input name='name' type='name' className='text' value={formFields.name} onChange={handleChange}/>
                 </div>
     
                 <div className='registerContainer'>
                     <label>Apellido</label>
-                    <input type='lastName' className='text' ref={lastName}/>
+                    <input name='lastName' type='lastName' className='text' value={formFields.lastName} onChange={handleChange}/>
                 </div>
     
                 <div className='registerContainer'>
                     <label>Email</label>
-                    <input type='email' className='email' ref={mail}/>
+                    <input name='mail' type='email' className='email'value={formFields.mail} onChange={handleChange}/>
                 </div>
     
                 <div className='registerContainer'>
                     <label>Contraseña</label>
-                    <input type='password' className='pass'ref={pass}></input>
+                    <input name='pass' type='password' className='pass' value={formFields.pass} onChange={handleChange}/>
                 </div>
     
                 <div className='registerContainer avatarChoice'>

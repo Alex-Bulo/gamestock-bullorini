@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 import { useAuth } from '../../context/AuthContext';
 import CartWidget from '../CartWidget/CartWidget';
 import LogIn from '../LogIn/LogIn';
 import './NavBar.css'
+import { getFirestore } from '../../firebase';
+import { collection, query, getDocs } from "firebase/firestore";
 
-function NavBar(props) {
+function NavBar(props) {    
     const themeIcon = props.themeIcon
     const [showLogIn, setShowLogIn] = useState(false)
     const {user} = useAuth()
+
 
     function logInHandler (e){
         if(!user){
