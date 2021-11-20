@@ -31,12 +31,15 @@ Página de venta de videojuegos que cumple con los requisitos del curso:
 - /notFound - pagina de notFound con links para volver a los sitios navegables
 	- pedido a API publica [Rawg games](https://rawg.io/apidocs) (lugar de donde saqué la info de los juegos para el sitio) para mostrar un video juego aleatorio (si la API da error, no muestra nada)
 
-Decidí no utilizar ninguna librería de React y crear los componentes de 0 para practicar React. Solamente usé react-loader-spinner por recomendación de tutor
+Elegí no utilizar ninguna librería de React y crear los componentes de 0 para practicar React. 
+Solamente usé react-loader-spinner por recomendación de tutor
 ***
 
 ## Levantar proyecto
 
 Clonar repositorio *( git clone https://github.com/Alex-Bulo/gamestock-bullorini.git )*
+
 Instalar dependencias (npm install)
+
 Inicializar proyecto *(npm start)*
 
