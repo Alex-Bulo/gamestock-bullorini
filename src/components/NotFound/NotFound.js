@@ -4,12 +4,12 @@ import './NotFound.css'
 
 
 function NotFound({game}) {
-    const [gamePic, setGamePic] = useState(game?0:null)
+    const [gamePic, setGamePic] = useState(0)
     
     
     
     useEffect( () => {
-        if(gamePic===null){
+        if(game == null){
             setGamePic(null)
         }else{
             const changeGame = ()=>{
@@ -26,7 +26,7 @@ function NotFound({game}) {
             return () => clearInterval(timeLapse)
         }    
     }   
-        ,[gamePic, game.images.length])
+        ,[ game, gamePic])
 
     return (
         <section className="NotFound">

@@ -14,7 +14,7 @@ function NotFoundContainer() {
 
     
     useEffect( () => {
-        // console.log(randomID);
+        
             fetch(`${GAMEDB}${randomID}?key=${GAMEDB_API_KEY}`)
                 .then(response => response.json())
                 .then(data =>{
@@ -46,6 +46,7 @@ function NotFoundContainer() {
 
             })
                 .catch( error => {
+                    console.log('Random ID no existe en la public API');
                     setRandomGame(null)
                     setLoading(false)
                 })
