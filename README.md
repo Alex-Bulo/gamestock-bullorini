@@ -25,7 +25,7 @@ Página de venta de videojuegos que cumple con los requisitos del curso:
 - PopUp login en NavBar
 - /item/:id - PopUp con imágenes extras del videojuego elegido, cerrándose al hacer click fuera del mismo
 - /cart - Funcionalidad de modificar la cantidad elegida en el carrito con el mismo componente ItemCount de /item/:id (reemplaza la cantidad, no agrega o resta)
- - Formulario de finalizar compra pre cargado si el usuario está logueado
+	- Formulario de finalizar compra pre cargado si el usuario está logueado
 - /profile - muestra el perfil del usuario (solo accesible si el usuario está logueado)
 - /register - muestra formulario para registrarse (creación de user en firebase)
 - /notFound - pagina de notFound con links para volver a los sitios navegables
