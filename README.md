@@ -1,6 +1,7 @@
 # Gamestock - Bullorini
 E-commerce para el curso de CoderHouse sobre ReactJS (2 meses)
 Repositorio público: [Github](https://github.com/Alex-Bulo/gamestock-bullorini)
+Proyecto subido a Heroku: [gamestock-bullorini.herokuapp.com](http://gamestock-bullorini.herokuapp.com/)
 ***
 
 Página de venta de videojuegos que cumple con los requisitos del curso:
@@ -16,13 +17,13 @@ Página de venta de videojuegos que cumple con los requisitos del curso:
 	 - Render condicional por si no existen items en el carrito
 	 - Funcionalidad de eliminar del carrito el item seleccionado y vaciar el carrito
 	 - Funcionalidad de finalizar compra y generar una orden de compra (firebase)
- - [extra] formulario pre cargado si el usuario está logueado
 
 [extras al curso]
 - Funcionalidad de elección de Theme (dark/light mode) con useContext
 - PopUp login en NavBar
 - /item/:id - PopUp con imágenes extras del videojuego elegido, cerrándose al hacer click fuera del mismo
- - /cart - Funcionalidad de modificar la cantidad elegida en el carrito con el mismo componente ItemCount de /item/:id (reemplaza la cantidad, no agrega o resta)
+- /cart - Funcionalidad de modificar la cantidad elegida en el carrito con el mismo componente ItemCount de /item/:id (reemplaza la cantidad, no agrega o resta)
+ - Formulario de finalizar compra pre cargado si el usuario está logueado
 - /profile - muestra el perfil del usuario (solo accesible si el usuario está logueado)
 - /register - muestra formulario para registrarse (creación de user en firebase)
 - /notFound - pagina de notFound con links para volver a los sitios navegables
@@ -37,4 +38,3 @@ Clonar repositorio *( git clone https://github.com/Alex-Bulo/gamestock-bullorini
 Instalar dependencias (npm install)
 Inicializar proyecto *(npm start)*
 
-Proyecto subido a Heroku: [gamestock-bullorini.herokuapp.com](http://gamestock-bullorini.herokuapp.com/)
