@@ -1,6 +1,8 @@
 # Gamestock - Bullorini
 E-commerce para el curso de CoderHouse sobre ReactJS (2 meses)
+
 Repositorio público: [Github](https://github.com/Alex-Bulo/gamestock-bullorini)
+
 Proyecto subido a Heroku: [gamestock-bullorini.herokuapp.com](http://gamestock-bullorini.herokuapp.com/)
 ***
 
