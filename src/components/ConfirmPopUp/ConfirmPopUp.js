@@ -18,8 +18,8 @@ function ConfirmPopUp({children,actionBtn, box}) {
             <div className={`ConfirmPopUp ${box.removeBox ? 'show':'noShow'}`} onClick={()=> box.setRemoveBox(false)}>
                 <div className='confirmMsg' onClick={(e)=>e.stopPropagation()}>
                     {children}
-                    <button className='deleteBtn' onClick={(e) => actionHandler(e) }>Continuar</button>
-                    <button className='returnBtn'onClick={(e) => returnHandler(e) }>Regresar</button>
+                    <button className='deleteBtn' onClick={ actionHandler }>Continuar</button>
+                    <button className='returnBtn'onClick={ returnHandler }>Regresar</button>
                 </div>
             </div>
     );

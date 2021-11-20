@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 import './Checkout.css'
@@ -10,37 +10,21 @@ import ConfirmPopUp from '../ConfirmPopUp/ConfirmPopUp';
 function Checkout({close}) {  
     const {user, preference} = useAuth()
     const {cart, clearCart} = useCart()
-  
-    const [name, setName] = useState( user ? `${user.name} ${user.lastName}`: '')
-    const [tel, setTel] = useState( (user && user.tel) ? `${user.tel}`: '')
-    const [mail, setMail] = useState( (user && user.mail) ? `${user.mail}`: '')
+    
+    const [formFields, setFormFields] = useState({
+        name: user ? `${user.name} ${user.lastName}`: '',
+        tel: (user && user.tel) ? `${user.tel}`: '',
+        mail: (user && user.mail) ? `${user.mail}`: ''
+      });
+
     const [newOrder, setNewOrder] = useState(null)
     const [popUpBox, setPopUpBox] = useState(false)
 
-
-    const nameInput = useRef(null)
-    const telInput = useRef(null)
-    const mailInput = useRef(null)
  
     const inputHandler = (e) =>{
-        switch (e.target) {
-            case nameInput.current:
-                setName(e.target.value)
-                break;
-            
-            case telInput.current:
-                setTel(e.target.value)
-                break;
-            
-            case mailInput.current:
-                setMail(e.target.value)
-                    
-                break;
-                
-            default:
-                break;
-        }
 
+        setFormFields({ ...formFields, [e.target.name]: e.target.value });
+    
     }
     const confirmHandler = (e) =>{
         e.preventDefault()
@@ -68,7 +52,7 @@ function Checkout({close}) {
         })
 
         const order = {
-            buyer: {name, phone: tel, email:mail},
+            buyer: {name: formFields.name, phone: formFields.tel, email:formFields.mail},
             items,
             total: cart.reduce( (acum, item)=> acum + item.price*item.qty, 0 )
         }
@@ -100,18 +84,18 @@ function Checkout({close}) {
 
                     <div className='inputContainer'>
                         <label>Nombre y Apellido</label>
-                        <input ref={nameInput} type='text' value={name} onChange={(e) => inputHandler(e) }/>
+                        <input name='name' type='text' value={formFields.name} onChange={ inputHandler }/>
                     </div>
                     <div className='inputContainer'>
                         <label>Teléfono</label>
-                        <input ref={telInput} type='text' value={ tel } onChange={(e) => inputHandler(e) }/>
+                        <input name='tel' type='text' value={ formFields.tel } onChange={ inputHandler }/>
                     </div>
                     <div className='inputContainer'>
                         <label>Email</label>
-                        <input ref={mailInput} type='email' value={ mail } onChange={(e) => inputHandler(e) }/>
+                        <input name='mail' type='email' value={ formFields.mail } onChange={ inputHandler }/>
                     </div>
                     
-                    <button onClick={ (e) => confirmHandler(e) } className='addBtn'>Confirmar</button>
+                    <button onClick={ confirmHandler } className='addBtn'>Confirmar</button>
                     <ConfirmPopUp actionBtn={buy} box={{removeBox:popUpBox, setRemoveBox:setPopUpBox}} >
                         <p>Confirma <br/><span>la compra?</span></p>
                     </ConfirmPopUp>
@@ -119,7 +103,7 @@ function Checkout({close}) {
             }
             {newOrder &&
                 <>
-                    <h3>Gracias por tu compra, {name}!</h3>
+                    <h3>Gracias por tu compra, {formFields.name}!</h3>
 
                     <div className='inputContainer'>
                         <p>Ya hemos procesado tu pedido bajo el numero de orden <span>{newOrder}</span></p>

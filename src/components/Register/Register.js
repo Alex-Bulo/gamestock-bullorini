@@ -19,9 +19,9 @@ function Register() {
         mail:""
       });
     
-      function handleChange(evt) {
-        setFormFields({ ...formFields, [evt.target.name]: evt.target.value });
-      }
+    function handleChange(e) {
+        setFormFields({ ...formFields, [e.target.name]: e.target.value });
+    }
 
 
 
@@ -41,8 +41,8 @@ function Register() {
 
         const usersCollection = collection(db, "users");
 
-        addDoc(usersCollection, {...newUser}).then( ({ id }) => {
-            // console.log('New user ID: ', id)
+        addDoc(usersCollection, {...newUser}).then( () => {
+            
             logIn(newUser.mail,newUser.pass)
 
         })
