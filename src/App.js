@@ -14,6 +14,7 @@ import { getFirestore } from './firebase';
 import { collection, query, getDocs } from "firebase/firestore";
 import Register from './components/Register/Register';
 
+
 function App() {
       const [categories, setCategories] = useState(null)
 
@@ -52,7 +53,6 @@ function App() {
                   themeHandler={preference.themeChange}
                   />
                 
-
               <Switch>
                 <Route exact path="/">
                       {categories && <ItemListContainer categories={categories}/>}

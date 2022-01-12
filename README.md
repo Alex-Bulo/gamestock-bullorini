@@ -38,3 +38,6 @@ Instalar dependencias (npm install)
 Inicializar proyecto *(npm start)*
 
 Proyecto subido a Heroku: [gamestock-bullorini.herokuapp.com](http://gamestock-bullorini.herokuapp.com/)
+
+user: ale@user.com
+pass: holamundo
